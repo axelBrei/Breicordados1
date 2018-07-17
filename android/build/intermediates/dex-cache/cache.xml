@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/71263e8404af4363aae8bce4a24533deae0e56ab/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/classes_7eb4dff2cc6b4ede044d4a942c9c03dc01e85d55.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_511b9b00f527fddb68a16dce22c754ca49656177.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/a920c168884df1ab9135a09b9307e3c51e2d6885/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="e31331bdf6b5952badadbfc171f04b95c55d3b16">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/classes_0c5d2e2c1bce6aee92511ca0d8240cf3afa4abf0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/c66ab7b1e373af102a88a681cc3ede0a7243508e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/classes_c1362e1f8239d733e5485d914f65a460aa1e8b92.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/133ea5e298b18f69d9559252ece96b15339c78b9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/classes_b8fc6bc5195d082672c58b37956457171243adf3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/c2b38bfaa743655882972a5eb281cb471d2d8916/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/classes_3d6125a0a08b7090dc1775339482768b90233541.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/1cc1bb462bf8550f6ec51fb9e45cae49c84d1320/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/classes_00cb983af6d0a08c7e6ba2984b31e08ff882e18f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/39cf5d0629a077e432351b7bec631706946ced65/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/classes_d6e8f0603a8d6a42fa539879f16765f64796d88d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/0194e07b8a4750f75beb808d0b8eb2e3e38dacc3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/classes_25a3cd3290c0bb62c168fc5816d4f9676adb4877.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_473ee1385aea91322ac84fc2c92cdea824867af8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_630c1fdec03a9ea72c5585a69d3e825112d71e1a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/macbook/.android/build-cache/a920c168884df1ab9135a09b9307e3c51e2d6885/output/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.3"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_f5249f6425757003e69148fd9fb7b7824ce41cf7.jar" />
+    </item>
+
+</items>

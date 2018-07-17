@@ -1,0 +1,54 @@
+dependencies: \
+  /Users/macbook/Downloads/react-native-fbsdk-0.7.0\ 2/ios/RCTFBSDK/core/RCTConvert+FBSDKAccessToken.m \
+  /Users/macbook/Downloads/react-native-fbsdk-0.7.0\ 2/ios/RCTFBSDK/core/RCTConvert+FBSDKAccessToken.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Modules/module.modulemap \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Modules/module.modulemap \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFWebViewAppLinkResolver.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFURL.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFMeasurementEvent.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFAppLinkTarget.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFAppLinkResolving.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFAppLinkNavigation.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFAppLink.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFTaskCompletionSource.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFTask+Exceptions.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFTask.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFExecutor.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFCancellationTokenSource.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFCancellationTokenRegistration.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/BFCancellationToken.h \
+  /Users/macbook/Documents/FacebookSDK/Bolts.framework/Headers/Bolts.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKProfile.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKUtility.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKSettings.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKConstants.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKButton.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKMacros.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKCopying.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h \
+  /Users/macbook/Documents/FacebookSDK/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h

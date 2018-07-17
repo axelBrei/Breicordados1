@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPersistenceManager.m \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPersistenceManager.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FCompoundWrite.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQuerySpec.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FStorageEngine.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FCachePolicy.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/FCacheNode.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FLevelDBStorageEngine.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FIndexedNode.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/FNamedNode.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQueryManager.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQuery.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPruneForest.h \
+  /Users/macbook/Documents/Proyectos/Personales/Breicordados/ios/Pods/FirebaseDatabase/Firebase/Database/FClock.h
