@@ -11,3 +11,5 @@ export const ic_string = require('./Imagenes/ic_string.png');
 export const ic_history = require('./Imagenes/ic_history.png');
 
 export const ic_add = require('./Imagenes/ic_add.png');
+export const ic_item_list = require('./Imagenes/ic_item_list.png');
+export const ic_close = require('./Imagenes/ic_close.png');

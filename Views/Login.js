@@ -54,6 +54,7 @@ export default class LoginScreen extends React.Component{
   saveInFirebase(user){
     firebase.database()
       .ref()
+      .child('Usuarios')
       .child(user.uid)
       .set({
         clientData:{

@@ -11,9 +11,6 @@ import { appLogo } from '../Images/Images';
 import DataEntry from '../Components/Login/DataEntry';
 import firebase from 'react-native-firebase';
 
-
-
-
 export default class SignInScreen extends React.Component{
 
   state = {
@@ -42,6 +39,7 @@ export default class SignInScreen extends React.Component{
       .child(user.user.uid)
       .set({
         clientData:{
+          id:user.user.uid,
           mail: this.state.mail,
           nombreYApellido: this.state.nombre,
           telefono: this.state.telefono,

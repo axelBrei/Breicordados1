@@ -22,6 +22,7 @@ export default class BottomNavigation extends React.Component{
       const color = index === i ? 'orange':'grey';
         buttons.push(
           <BottomBarButton
+          key={i}
           source={icons[i]}
           text={routes[i].key}
           color={color}

@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
   container:{
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'absolute',
+    right: 0,
+    bottom:0,
   },
   opacity:{
     borderRadius: 100,

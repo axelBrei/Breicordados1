@@ -3,13 +3,15 @@ import {
   SafeAreaView,
   StyleSheet,
   Image,
+    Alert
 } from 'react-native';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 import { appLogo } from '../Images/Images';
 import firebase from 'react-native-firebase';
+import {  setUserFromFirebase, setStrings } from "../src/js/actions/ActionIndex";
+import { connect } from 'react-redux';
 
-
-export default class LoadingUser extends React.Component{
+class LoadingUser extends React.Component{
   constructor() {
     super();
     this.unsubscriber = null;
@@ -23,10 +25,16 @@ export default class LoadingUser extends React.Component{
   componentDidMount(){
     this.setState({isLoading:true});
     this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+      this.props.setStrings()
+      if(user){
+        this.props.getDatabaseUser(user.uid);
+      }
       setInterval( ()=>{
-        this.setState({isLoading:false},()=>{
-          this.props.navigation.navigate(user ? 'MainStack':'Login');
-        });
+        if (this.state.isLoading){
+            this.setState({isLoading:false},()=>{
+                this.props.navigation.navigate(user ? 'MainStack':'Login');
+            });
+        }
       }, 2300);
     });
     if (this.state.isLoading) {
@@ -62,7 +70,6 @@ componentWillUnmount(){
               progress: 0,
             })
           }}
-
         />
       </SafeAreaView>
     );
@@ -78,5 +85,14 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#4CAF50'
   },
-
 })
+
+const mapDispatchToProps = (dispatch) => ({
+    getDatabaseUser: (firUId) => dispatch(setUserFromFirebase(dispatch,firUId)),
+    setStrings: () => dispatch(setStrings(dispatch)),
+});
+const mapStateToProps = ({raquetas}) => ({
+    raquetas: raquetas
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoadingUser);

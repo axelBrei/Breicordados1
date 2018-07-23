@@ -2,7 +2,7 @@ import { createStackNavigator, createSwitchNavigator , createBottomTabNavigator}
 import LoginScreen from '../Views/Login';
 import SignInScreen from '../Views/SignInScreen';
 import LoadingUser from '../Views/LoadingUser';
-import MisDatosScreen from '../Views/BottomBarViews/MisDatosScreen';
+import MisPedidosScreen from '../Views/BottomBarViews/MisPedidosScreen';
 import MisRaquetasScreen from '../Views/BottomBarViews/MisRaquetasScreen';
 import MisCuerdasScreen from '../Views/BottomBarViews/MisCuerdasScreen';
 import HistorialEncordadosScreen from '../Views/BottomBarViews/HistorialEncordados';
@@ -10,16 +10,15 @@ import SettingsScreen from '../Views/BottomBarViews/SettingsScreen';
 import BottomNavigation from '../Components/Main/BottomNavigation';
 import AddNewOrderScreen from '../Views/AddNewOrder';
 
-
-
-
-
-
 const Datos = createStackNavigator({
-  Datos: {screen : MisDatosScreen},
-  AgregarPedido: {screen: AddNewOrderScreen},
+  Datos: {screen : MisPedidosScreen},
+  AgregarPedido: {screen: AddNewOrderScreen,
+      navigationOptions: ()=>({
+          headerBackTitle:'Volver',
+      }),
+  }
 },{
-  initialRouteName:'AgregarPedido'
+  initialRouteName:'Datos'
 });
 const Raquetas = createStackNavigator({
   Raquetas: {screen: MisRaquetasScreen},
@@ -42,6 +41,7 @@ export const TabStackNavigation = createBottomTabNavigator({
   Historial: Historial,
   Opciones: Opciones,
 },{
+  initialRouteName: 'Raquetas',
   tabBarComponent: BottomNavigation,
   tabBarPosition: 'bottom',
 })
@@ -53,6 +53,6 @@ export default SwitchNavigation = createSwitchNavigator(
       SignIn: {screen: SignInScreen},
       MainStack: TabStackNavigation,
   },{
-    initialRouteName: 'MainStack',
+    initialRouteName: 'Loading',
   });
   // initialRouteName: 'Loading',

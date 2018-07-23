@@ -1,4 +1,6 @@
 rootProject.name = 'Breicordados'
+include ':react-native-uuid-generator'
+project(':react-native-uuid-generator').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-uuid-generator/android')
 include ':react-native-fbsdk'
 project(':react-native-fbsdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fbsdk/android')
 include ':react-native-firebase'

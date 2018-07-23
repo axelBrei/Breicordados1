@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml",
+            "outputFile": "/Users/macbook/Documents/Proyectos/Personales/Breicordados1/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/834ed6d9e50334f896ee14ce3b350338/res/values-sw/values.xml",

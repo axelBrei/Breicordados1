@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-id/values-id.xml",
+            "outputFile": "/Users/macbook/Documents/Proyectos/Personales/Breicordados1/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-id/values-id.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-1/files-1.1/facebook-common-4.34.0.aar/fc6cd0414197dda6973bd118ead13aba/res/values-id/values-id.xml",

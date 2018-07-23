@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-cs/values-cs.xml",
+            "outputFile": "/Users/macbook/Documents/Proyectos/Personales/Breicordados1/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-cs/values-cs.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-1/files-1.1/facebook-login-4.34.0.aar/d5beee59c6a0e53d2c562f587fff0b86/res/values-cs/values-cs.xml",

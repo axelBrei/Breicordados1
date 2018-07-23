@@ -6,7 +6,9 @@ import {
 
 
 export default class HistorialEncordadosScreen extends React.Component{
-
+  static navigationOptions = {
+    title:'Historial'
+  }
   render() {
     return (
       <View></View>

@@ -2,6 +2,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import SwitchNavigation from './StackNavigation/MainStack';
+import { Provider } from "react-redux";
+import store from "./src/js/store/index";
 
 export default class App extends Component<Props> {
 
@@ -23,7 +25,9 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-      <SwitchNavigation />
+        <Provider store={store}>
+            <SwitchNavigation />
+        </Provider>
     );
   }
 }

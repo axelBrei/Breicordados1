@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/macbook/Documents/Proyectos/Personales/Breicordados/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
+            "outputFile": "/Users/macbook/Documents/Proyectos/Personales/Breicordados1/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
                     "source": "/Users/macbook/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/cf390eddbb15c5fa4f6cb55b9decc23b/res/values-v24/values-v24.xml",

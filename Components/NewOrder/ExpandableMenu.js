@@ -4,8 +4,11 @@ import {
   Text,
   View,
   Animated,
+  Alert,
   TouchableWithoutFeedback,
 } from 'react-native';
+import { ItemRaquetLite } from '../ListItems/ItemRaquetaLite';
+
 
 export default class ExpandableMenu extends React.Component{
   constructor(props){
@@ -13,12 +16,20 @@ export default class ExpandableMenu extends React.Component{
 
         this.state = {
             list       : props.list,
+            title: this.props.title,
             expanded    : false,
-            animation   : new Animated.Value()
+            animation   : new Animated.Value(),
         };
+        this.toggle = this.toggle.bind(this);
 
-        this.state.animation.setValue(40);
+        this.state.animation.setValue(45);
 
+    }
+
+    componentDidUpdate(prevProps, prevState){
+      if (prevProps.title !== this.props.title ) {
+        this.toggle()
+      }
     }
 
     toggle(){
@@ -39,15 +50,23 @@ export default class ExpandableMenu extends React.Component{
     }
 
     _setMaxHeight(event){
+      const { maxHeight , height} = this.props;
+        let heigth;
+        this.props.height > maxHeight ? heigth = maxHeight: heigth = height;
         this.setState({
-            maxHeight   : 250
+            maxHeight   : heigth
         });
     }
 
     _setMinHeight(event){
         this.setState({
-            minHeight   : 40
+            minHeight   : 50
         });
+    }
+
+    onPressItem(text){
+      this.setState({title: text});
+      this.toggle()
     }
 
   render() {
@@ -57,15 +76,15 @@ export default class ExpandableMenu extends React.Component{
 
                 <TouchableWithoutFeedback
                   onLayout={this._setMinHeight.bind(this)}
-                  style={styles.touchable}
                   onPress={this.toggle.bind(this)}>
                   <View style={styles.touchable}>
-                    <Text style={styles.title}> {this.props.title} </Text>
+                    <Text style={[this.props.style,{paddingTop:8}]}> {this.props.title} </Text>
                   </View>
                 </TouchableWithoutFeedback>
 
                 <View style={styles.body} onLayout={this._setMaxHeight.bind(this)}>
-                    {this.props.children}
+                {this.props.children}
+
                 </View>
 
             </Animated.View>
@@ -75,33 +94,19 @@ export default class ExpandableMenu extends React.Component{
 
 const styles = StyleSheet.create({
     container   : {
-      padding: 10,
         overflow:'hidden',
-        width: '85%',
+        width: '100%',
         flexDirection: 'column',
-        borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 15,
         display: 'flex',
-        alignItems: 'flex-start',
-        margin: 10,
     },
-    titleContainer : {
-        flexDirection: 'column',
-        flex: 1,
-    },
-    title: {
-        fontWeight:'bold',
-        textAlign: 'center',
-        fontSize: 14,
-        height: 30,
-    },
-    touchable:{
-      justifyContent: 'flex-start',
-      width: '100%',
 
+    touchable:{
+      justifyContent: 'center',
+        alignItems:'center',
     },
     body: {
-        padding     : 10,
-
+        marginStart:40,
+        marginEnd:40,
     }
 });
