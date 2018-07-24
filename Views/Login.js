@@ -6,15 +6,16 @@ import { SafeAreaView ,
    Text,
    Alert,
  TouchableOpacity} from 'react-native';
-import { appLogo ,googleLogo ,facebookLogo } from '../Images/Images'
+import { appLogo ,facebookLogo } from '../Images/Images'
 import RoundImageButton from '../Components/Login/RoundImageButton'
-// import Cliente from '../Model/Cliente';
 import firebase from 'react-native-firebase';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
+import {  setUserFromFirebase, setStrings , setOrderFromFirebase} from "../src/js/actions/ActionIndex";
+import { connect } from 'react-redux';
 
 
 
-export default class LoginScreen extends React.Component{
+class LoginScreen extends React.Component{
   // HEADER
   static navigationOptions = {
     title: '',
@@ -38,8 +39,13 @@ export default class LoginScreen extends React.Component{
     const { email , clave } = this.state;
         firebase
           .auth()
-          .signInWithEmailAndPassword(email, clave)
-          .then(() => this.props.navigation.navigate('MainStack'))
+          .signInAndRetrieveDataWithEmailAndPassword(email, clave)
+          .then((user) => {
+            this.props.setStrings()
+            this.props.getUserOrders(user.user.uid);
+            this.props.getDatabaseUser(user.user.uid);
+            this.props.navigation.navigate('MainStack')
+          })
           .catch(error => this.setState({ errorMessage: error.message }, ()=>{
             Alert.alert(' ' + error.message);
           }));
@@ -63,7 +69,6 @@ export default class LoginScreen extends React.Component{
           telefono: this.state.telefono,
         }
       }).then( ()=>{
-        // TODO GO TO ASK Cellphne screen
         this.props.navigation.navigate('MainStack');
       })
   }
@@ -90,6 +95,9 @@ export default class LoginScreen extends React.Component{
     const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential)
       .then( (user) => {
         this.saveInFirebase(user);
+        this.props.setStrings()
+        this.props.getUserOrders(user.user.uid);
+        this.props.getDatabaseUser(user.user.uid);
       });
   } catch (e) {
       Alert.alert(e.message);
@@ -133,6 +141,14 @@ export default class LoginScreen extends React.Component{
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  getDatabaseUser: (firUId) => dispatch(setUserFromFirebase(dispatch,firUId)),
+  getUserOrders: (firUid) => dispatch(setOrderFromFirebase(dispatch,firUid)),
+  setStrings: () => dispatch(setStrings(dispatch)),
+});
+
+export default connect(null,mapDispatchToProps)(LoginScreen);
 
 const styles = StyleSheet.create({
   container:{

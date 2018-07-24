@@ -23,6 +23,7 @@ export default class EditdataModal extends React.Component{
     }
 
     render() {
+        const { placeholder } = this.props;
         return(
                 <Modal
                     style={styles.bottomModal}
@@ -31,11 +32,11 @@ export default class EditdataModal extends React.Component{
                     isVisible={this.props.visible}
                 >
                     <View style={styles.modalContent}>
-                        <Text style={styles.text}>Ingrese su nuevo {this.props.campo}</Text>
+                        <Text style={styles.text}>Ingrese un nuevo {placeholder.toLowerCase()}</Text>
                         <TextInput 
                         style={styles.textInput}
                         onChangeText={(text)=> this.setState({text})}
-                        placeholder={'hola'}/>
+                        placeholder={placeholder.toLowerCase()}/>
                         <View style={styles.buttonsContainer}>
                             <TouchableOpacity 
                                 style={styles.button}
@@ -87,6 +88,7 @@ const styles = {
         borderBottomWidth:1,
         width:'80%',
         textAlign:'center',
+        borderColor: '#A8A0A0',
     },
     buttonsContainer:{
         height:50,

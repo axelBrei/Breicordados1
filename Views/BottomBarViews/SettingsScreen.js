@@ -83,6 +83,8 @@ class SettingsScreen extends React.Component{
           <View style={{flexDirection:'column-reverse',justifyContent:'flex-start',flex:1,alignItems:'center'}}>
           <TouchableOpacity style={styles.singOut}
             onPress={()=> {
+              firebase.auth().signOut()
+              this.props.navigation.navigate('Login');
             }}>
               <Text>Cerrar Sesion</Text>
             </TouchableOpacity> 
@@ -101,8 +103,7 @@ class SettingsScreen extends React.Component{
   }
 };
 
-// firebase.auth().signOut()
-// this.props.navigation.navigate('Login');
+
 
 const styles = StyleSheet.create({
   container:{
