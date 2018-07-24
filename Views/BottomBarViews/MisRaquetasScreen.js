@@ -13,7 +13,7 @@ import { getRaquetas } from "../../Utils/firebaseController";
 import firebase from  'react-native-firebase';
 import  ItemRaqueta  from "../../Components/ListItems/ItemRaqueta";
 import { connect } from "react-redux";
-import {getUserRackets, removeUserRacketFirebase} from "../../src/js/actions/ActionIndex";
+import {getUserFirebaseRackets, removeUserRacketFirebase} from "../../src/js/actions/ActionIndex";
 import FloatingActionButton from '../../Components/Main/FloatingActionButton';
 import { ic_add } from '../../Images/Images';
 import NewRacketModal from '../../Components/Modals/NewRacketModal';
@@ -39,17 +39,6 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
 
   _keyExtractor = (item, index) => item.id;
 
-  getRaquetasFirebase(){
-      getRaquetas(firebase.auth().currentUser.uid)
-          .then( (snapshot) => {
-              let raquetas = [];
-              snapshot.forEach( (child) => {
-                  raquetas.push(child.val());
-              });
-              this.setState({raquetas})
-          })
-      return new Promise(() => {});
-  }
 
   onDeleteSwipe(raqueta){
    this.props.removeUserRacket(this.props.userId,raqueta);
@@ -76,11 +65,12 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
   };
   onRefresh = ()=>{
         // TODO get data from firebase
-      this.setState({refreshinf: true},() => {
-          this.getRaquetasFirebase().then( () => {
-              this.setState({refreshing: false});
-          })
-      })
+    //   this.setState({refreshinf: true},() => {
+    //       this.getRaquetasFirebase().then( () => {
+    //           this.setState({refreshing: false});
+    //       })
+    //   })
+    this.props.getFirebaseRackets(this.props.userId);
   }
 
   toggleModal(){
@@ -144,7 +134,12 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return {
-        removeUserRacket: (userId,racket)=>{dispatch(removeUserRacketFirebase(dispatch,userId,racket))}
+        getFirebaseRackets: (userId)=>{
+            dispatch(getUserFirebaseRackets(dispatch,userId))
+        },
+        removeUserRacket: (userId,racket)=>{
+            dispatch(removeUserRacketFirebase(dispatch,userId,racket))
+        }
     }
 }
 

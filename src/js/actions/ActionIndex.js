@@ -1,5 +1,22 @@
-import { RECIVE_USER, REQUEST_USER, GET_FECTHED_USER, ADD_USER_DATA, ADD_STRINGS, GET_STRINGS, SET_USER_ORDERS} from "../constants/action-types";
-import { getUser , getCuerdas , getUserOrders, uploadOrder, uploadRacket, removeRacket} from "../../../Utils/firebaseController";
+import { 
+    RECIVE_USER, 
+    REQUEST_USER, 
+    GET_FECTHED_USER, 
+    ADD_USER_DATA, 
+    ADD_STRINGS, 
+    GET_STRINGS, 
+    SET_USER_ORDERS,
+    RECIVE_USER_RACKETS,
+} from "../constants/action-types";
+import { 
+    getUser , 
+    getCuerdas , 
+    getUserOrders, 
+    uploadOrder, 
+    uploadRacket, 
+    removeRacket,
+    getRackets,
+} from "../../../Utils/firebaseController";
 
 //--------------------USER--------------------
 export function reciveUser(user) {
@@ -35,6 +52,20 @@ export function removeUserRacket(racket){
     return {
         type:ADD_USER_DATA.REMOVE_RACKET,
         payload: racket,
+    }
+}
+export function setFirebaseRackets(rackets){
+    return {
+        type: RECIVE_USER_RACKETS,
+        payload:rackets,
+    }
+}
+export function getUserFirebaseRackets(dispatch,userId){
+    return () => {
+        getRackets(userId)
+        .then( (rackets) => {
+            dispatch(setFirebaseRackets(rackets));
+        })
     }
 }
 export function removeUserRacketFirebase(dispatch,userId,racket){

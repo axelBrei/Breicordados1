@@ -8,7 +8,7 @@ const user = {
   addres:[],
 }
 //-------------RACKETS------------------
-export async function getRaquetas(firebaseUid) {
+export async function getRackets(firebaseUid) {
   const snapshot = await firebase.database().ref('/Usuarios/' + firebaseUid + '/Raquetas').once();
   let raquetas = [];
   const value = snapshot.val();
