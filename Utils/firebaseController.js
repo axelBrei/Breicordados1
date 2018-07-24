@@ -7,7 +7,7 @@ const user = {
   orders:[],
   addres:[],
 }
-
+//-------------RACKETS------------------
 export async function getRaquetas(firebaseUid) {
   const snapshot = await firebase.database().ref('/Usuarios/' + firebaseUid + '/Raquetas').once();
   let raquetas = [];
@@ -21,6 +21,19 @@ export async function getRaquetas(firebaseUid) {
   return raquetas;
 }
 
+export function uploadRacket(userId,racket){
+  firebase.database()
+  .ref('/Usuarios/' + userId + '/Raquetas/' + racket.id)
+  .set(racket)
+}
+
+export function removeRacket(userId,racket){
+  firebase.database()
+  .ref('/Usuarios/' + userId + '/Raquetas/' + racket.id)
+  .set(null)
+}
+// ------------------STRINGS-----------------
+
 export async function getCuerdas(){
   const snapshot = await firebase.database().ref('/Cuerdas').once();
   const value = snapshot.val();
@@ -33,6 +46,8 @@ export async function getCuerdas(){
   }
   return cuerdas;
 }
+
+//----------------------USER DATA---------------------
 
 export async function getUser(firUId){
   const snapshot = await firebase.database().ref('/Usuarios/' + firUId).once();
@@ -55,11 +70,7 @@ export function uploadUser(user){
   .set(user);
 }
 
-export function uploadRacket(userId,racket){
-  firebase.database()
-  .ref('/Usuarios/' + userId + '/Raquetas/' + racket.id)
-  .set(racket)
-}
+//---------------------ORDERS-------------------------
 
 export function uploadOrder(order){
   firebase.database()

@@ -9,7 +9,8 @@ export const GET_FECTHED_USER = {
 export const ADD_USER_DATA = {
     ADD_RACKET: 'ADD_RACKET',
     ADD_ORDER: 'ADD_ORDER',
-    ADD_ADDRES: 'ADD_ADDRES'
+    ADD_ADDRES: 'ADD_ADDRES',
+    REMOVE_RACKET: 'REMOVE_RACKET',
 };
 export const RECIVE_USER = "RECIVE_USER";
 export const ADD_STRINGS = 'ADD_STRINGS';

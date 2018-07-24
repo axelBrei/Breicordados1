@@ -9,11 +9,11 @@ import {
   FlatList,
     RefreshControl,
 } from 'react-native';
-import { getRaquetas} from "../../Utils/firebaseController";
+import { getRaquetas } from "../../Utils/firebaseController";
 import firebase from  'react-native-firebase';
 import  ItemRaqueta  from "../../Components/ListItems/ItemRaqueta";
 import { connect } from "react-redux";
-import {getUserRackets} from "../../src/js/actions/ActionIndex";
+import {getUserRackets, removeUserRacketFirebase} from "../../src/js/actions/ActionIndex";
 import FloatingActionButton from '../../Components/Main/FloatingActionButton';
 import { ic_add } from '../../Images/Images';
 import NewRacketModal from '../../Components/Modals/NewRacketModal';
@@ -32,7 +32,7 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
     const { raquetas } = this.props;  
     if(raquetas.length < newProps.raquetas.length){
         this.setState({
-            raquetas: newProps.raquetas,
+            raquetas: newProps.raquetas.reverse(),
         })
     }
   }
@@ -50,12 +50,11 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
           })
       return new Promise(() => {});
   }
-  onDeleteSwipe(raqueta){
-      this.setState({
-          raquetas: this.state.raquetas.filter( item => item.id != raqueta.id),
-      })
 
+  onDeleteSwipe(raqueta){
+   this.props.removeUserRacket(this.props.userId,raqueta);
   }
+
     renderSeparator = () => {
         return (
             <View
@@ -95,7 +94,7 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
     return (
       <View style={styles.container}>
         <FlatList
-            data={this.state.raquetas}
+            data={this.props.raquetas}
             refreshControl={
                 <RefreshControl
                     refreshing={this.state.refreshing}
@@ -136,9 +135,19 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state){
-    return { raquetas: state.raquetas };
+    return {
+        raquetas: state.raquetas,
+        userId: state.userData.id,
+    };
 };
 
 
+function mapDispatchToProps(dispatch){
+    return {
+        removeUserRacket: (userId,racket)=>{dispatch(removeUserRacketFirebase(dispatch,userId,racket))}
+    }
+}
 
-export default connect(mapStateToProps)(MisRaquetasScreen);
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(MisRaquetasScreen);

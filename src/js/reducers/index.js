@@ -35,6 +35,12 @@ export default function rootReducer(state = initialState, action){
                 raquetas: [...state.raquetas, payload],
             }
         }
+        case ADD_USER_DATA.REMOVE_RACKET:{
+            return {
+                ...state,
+                raquetas: filter(payload,state.raquetas),
+            }
+        }
         case ADD_USER_DATA.ADD_ADDRES:{
             return {
                 ...state,
@@ -64,3 +70,8 @@ export default function rootReducer(state = initialState, action){
             return state;
     }
 };
+
+
+function filter(object,array){
+    return array.filter(item => item.id !== object.id);
+}
