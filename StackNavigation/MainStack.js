@@ -12,13 +12,6 @@ import AddNewOrderScreen from '../Views/AddNewOrder';
 
 const Datos = createStackNavigator({
   Datos: {screen : MisPedidosScreen},
-  AgregarPedido: {screen: AddNewOrderScreen,
-      navigationOptions: ()=>({
-          headerBackTitle:'Volver',
-      }),
-  }
-},{
-  initialRouteName:'Datos'
 });
 const Raquetas = createStackNavigator({
   Raquetas: {screen: MisRaquetasScreen},
@@ -41,7 +34,7 @@ export const TabStackNavigation = createBottomTabNavigator({
   Historial: Historial,
   Opciones: Opciones,
 },{
-  initialRouteName: 'Raquetas',
+  initialRouteName: 'Pedidos',
   tabBarComponent: BottomNavigation,
   tabBarPosition: 'bottom',
 })
@@ -55,4 +48,3 @@ export default SwitchNavigation = createSwitchNavigator(
   },{
     initialRouteName: 'Loading',
   });
-  // initialRouteName: 'Loading',

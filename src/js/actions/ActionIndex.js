@@ -1,6 +1,5 @@
-import { RECIVE_USER, REQUEST_USER, GET_FECTHED_USER, ADD_USER_DATA, ADD_STRINGS, GET_STRINGS} from "../constants/action-types";
-import firebase from 'react-native-firebase';
-import { getUser , getCuerdas } from "../../../Utils/firebaseController";
+import { RECIVE_USER, REQUEST_USER, GET_FECTHED_USER, ADD_USER_DATA, ADD_STRINGS, GET_STRINGS, SET_USER_ORDERS} from "../constants/action-types";
+import { getUser , getCuerdas , getUserOrders, uploadOrder, uploadRacket} from "../../../Utils/firebaseController";
 
 export function reciveUser(user) {
 
@@ -32,25 +31,12 @@ export function addUserAddres(addres) {
         payload: addres,
     }
 }
-export function getUserData(){
+
+export function setUserOrder(orders){
     return {
-        type: GET_FECTHED_USER.GET_USER_DATA,
-    }
-}
-export function getUserRackets() {
-    return {
-        type: GET_FECTHED_USER.GET_USER_RACKETS,
-    }
-}
-export function getUserOrders() {
-    return {
-        type: GET_FECTHED_USER.GET_USER_ORDERS,
-    }
-}
-export function getUserAddres() {
-    return {
-        type: GET_FECTHED_USER.GET_USER_ADDRESS,
-    }
+        type: SET_USER_ORDERS,
+        payload: orders
+    };
 }
 
 export function addString(string){
@@ -71,6 +57,23 @@ export function setStrings(dispatch){
     }
 }
 
+export function setOrderFromFirebase(dispatch,userId){
+    return () => {
+        return getUserOrders(userId)
+            .then( (orders) => {
+                dispatch(setUserOrder(orders));
+            })
+    }
+}
+
+export function addOrderFirebase(dispatch,order){
+        return () => {
+            dispatch(addUserOrder(order));
+            uploadOrder(order);
+        }
+    
+}
+
 export function setUserFromFirebase(dispatch,firUId){
     return () => {
         dispatch(requestUser());
@@ -79,5 +82,12 @@ export function setUserFromFirebase(dispatch,firUId){
                 dispatch(reciveUser(snapshot));
                 return snapshot;
             })
+    }
+}
+
+export function addRacketFirebase(dispatch,userId,racket){
+    return () => {
+        dispatch(addUserRacket(racket));
+        uploadRacket(userId,racket);
     }
 }

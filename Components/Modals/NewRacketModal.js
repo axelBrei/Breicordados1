@@ -11,14 +11,10 @@ import {
 import Modal from 'react-native-modal';
 import ExandableInput from '../NewOrder/ExpandableInput';
 import { connect } from 'react-redux';
-import { addUserRacket } from '../../src/js/actions/ActionIndex';
+import { addRacketFirebase } from '../../src/js/actions/ActionIndex';
 import UUIDGenerator from 'react-native-uuid-generator';
 import { uploadRacket } from '../../Utils/firebaseController';
 import { ic_close } from '../../Images/Images';
-
-function getRandomId(){
-    return Math.floor(Math.random() * 100) + 1;
-}
 
 class NewRacketModal extends React.Component{
     state = {
@@ -45,20 +41,25 @@ class NewRacketModal extends React.Component{
         this.setState({raqueta})
     }
 
-    onAcceptButton = () => {
-        const raqueta = this.state.raqueta;
-        for (const key in raqueta) {
-            if (raqueta.hasOwnProperty(key)) {
-                const element = raqueta[key];
-                if(!element){
-                    this.props.onClose();
-                    return;
+    isValidRacket(racket) {
+        for (const key in racket) {
+            if (racket.hasOwnProperty(key)) {
+                const element = racket[key];
+                if(element === ''){
+                    return false;
                 }
             }
         }
-        raqueta.id = getRandomId();
-        this.props.addRacket(raqueta);
-        uploadRacket(this.props.user.id,raqueta);
+        return true;
+    }
+
+    onAcceptButton = () => {
+        const uuidV1 = require('uuid/v1');
+        const raqueta = this.state.raqueta;
+        raqueta.id = uuidV1();
+        if(this.isValidRacket(raqueta)){
+            this.props.addRacket(this.props.user.id,raqueta);
+        }
         this.props.onClose();
     }
 
@@ -74,6 +75,7 @@ class NewRacketModal extends React.Component{
                 <TouchableOpacity onPress={this.props.onClose} style={styles.closeButton}>
                     <Image  source={ic_close} style={styles.image}/>
                 </TouchableOpacity>
+                <View style={styles.divider} />
                 <Text style={styles.descText}>Ingrese los datos de la raqueta</Text>
                 <ExandableInput 
                     placeholder={'Marca'}
@@ -128,6 +130,7 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'column',
         backgroundColor:'white',
+        borderRadius:15,
     },
     buttonContainer:{
         flexDirection:'column-reverse',
@@ -139,7 +142,7 @@ const styles = StyleSheet.create({
         borderColor:'orange',
         width:'90%',
         textAlign:'center',
-        borderRadius:15,
+        borderRadius:10,
         marginTop:20,
         height:35,
     },
@@ -148,10 +151,14 @@ const styles = StyleSheet.create({
         fontSize:24,
         width:'100%',
         height:65,
-        marginBottom:20,
-        borderWidth: 1,
         paddingTop:15,
         borderColor:'#A8A0A0',
+    },
+    divider:{
+        height:1,
+        width:'100%',
+        backgroundColor: '#A8A0A0',
+        marginBottom:20,
     },
     button:{
         height:45,
@@ -159,6 +166,8 @@ const styles = StyleSheet.create({
         backgroundColor:'orange',
         alignItems:'center',
         justifyContent:'center',
+        borderBottomLeftRadius:10,
+        borderBottomRightRadius:10,
     },
     closeButton:{
         position: 'absolute',
@@ -182,7 +191,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return {addRacket: (racket)=>{dispatch(addUserRacket(racket))}}
+    return {addRacket: (userId,racket)=>{dispatch(addRacketFirebase(dispatch,userId,racket))}}
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(NewRacketModal);

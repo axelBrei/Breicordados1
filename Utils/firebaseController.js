@@ -60,3 +60,26 @@ export function uploadRacket(userId,racket){
   .ref('/Usuarios/' + userId + '/Raquetas/' + racket.id)
   .set(racket)
 }
+
+export function uploadOrder(order){
+  firebase.database()
+  .ref('/Pedidos/' + order.orderId)
+  .set(order);
+}
+
+export async function getUserOrders(userId){
+  const snapshot = await firebase.database()
+  .ref().child('Pedidos')
+  .orderByChild('userId')
+  .equalTo(userId)
+  .once();
+  const value = snapshot.val();
+  let pedidos = [];
+  for (const key in value) {
+    if (value.hasOwnProperty(key)) {
+      const element = value[key];
+      pedidos.push(element);
+    }
+  }
+  return pedidos;
+}

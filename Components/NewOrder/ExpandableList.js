@@ -13,13 +13,24 @@ export default class ExpandableList extends React.Component{
         selectedData: null,
         data: [],
     }
+    getHeight(){
+        const { data } = this.props;
+        return data.length > 0 ? height=25* (data.length + 1):0
+    }
+
+    componentDidMount(){
+        this.setState({
+            data: this.props.data,
+            listHeigth:this.getHeight(),
+        })
+    }
 
     componentDidUpdate(prevProps, prevState){
-      const { data } = this.props;
+        const { data } = this.props;
         if(prevProps.data.length < data.length){
             this.setState({
                 data: data,
-                listHeigth:data.length > 0 ? height=25* (data.length + 1):0,
+                listHeigth:this.getHeight(),
             })
         }
     }

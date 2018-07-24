@@ -8,7 +8,7 @@ import {
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 import { appLogo } from '../Images/Images';
 import firebase from 'react-native-firebase';
-import {  setUserFromFirebase, setStrings } from "../src/js/actions/ActionIndex";
+import {  setUserFromFirebase, setStrings , setOrderFromFirebase} from "../src/js/actions/ActionIndex";
 import { connect } from 'react-redux';
 
 class LoadingUser extends React.Component{
@@ -27,6 +27,7 @@ class LoadingUser extends React.Component{
     this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
       this.props.setStrings()
       if(user){
+        this.props.getUserOrders(user.uid);
         this.props.getDatabaseUser(user.uid);
       }
       setInterval( ()=>{
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => ({
     getDatabaseUser: (firUId) => dispatch(setUserFromFirebase(dispatch,firUId)),
+    getUserOrders: (firUid) => dispatch(setOrderFromFirebase(dispatch,firUid)),
     setStrings: () => dispatch(setStrings(dispatch)),
 });
 const mapStateToProps = ({raquetas}) => ({

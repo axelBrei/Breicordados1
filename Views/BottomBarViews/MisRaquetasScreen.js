@@ -28,6 +28,15 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
       modalVisible: false,
   }
 
+  componentWillReceiveProps(newProps){
+    const { raquetas } = this.props;  
+    if(raquetas.length < newProps.raquetas.length){
+        this.setState({
+            raquetas: newProps.raquetas,
+        })
+    }
+  }
+
   _keyExtractor = (item, index) => item.id;
 
   getRaquetasFirebase(){
@@ -129,9 +138,7 @@ const styles = StyleSheet.create({
 function mapStateToProps(state){
     return { raquetas: state.raquetas };
 };
-const mapDispatchToProps = (dispatch) => ({
-    getUserRackets: ()=> dispatch(getUserRackets())
-});
+
 
 
 export default connect(mapStateToProps)(MisRaquetasScreen);

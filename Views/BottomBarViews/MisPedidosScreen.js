@@ -1,6 +1,8 @@
 import React from 'react';
 import FloatingActionButton from '../../Components/Main/FloatingActionButton';
 import { ic_add } from '../../Images/Images';
+import NewOrderModal from '../../Components/Modals/NewOrderModal';
+import ItemPedido from '../../Components/ListItems/ItemPedido';
 import {
   View,
   StyleSheet,
@@ -8,32 +10,59 @@ import {
   Image,
   TouchableOpacity,
   Alert,
+  FlatList,
   SafeAreaView
 } from 'react-native';
-import ExpandableInput from '../../Components/NewOrder/ExpandableInput';
+import { connect } from 'react-redux';
 
-export default class MisPedidosScreen extends React.Component{
+class MisPedidosScreen extends React.Component{
   static navigationOptions = {
     title:'Mis Pedidos'
   }
-
-  onPressAdd(){
-    this.props.navigation.navigate('AgregarPedido')
+  state = {
+    modalVisible: false,
   }
 
+  toggleModal = ()=>{
+    this.setState({
+      modalVisible: !this.state.modalVisible,
+    });
+  }
+
+  renderItem = ({item})=>{
+    return (
+      <ItemPedido 
+        data={item}
+      />
+    );
+  }
+  keyExtractor = (item,index) => item.orderId;
+
   render() {
+    let listData = this.props.orders;
     return (
       <SafeAreaView style={styles.container}>
 
+        <FlatList 
+          data={listData}
+          renderItem={this.renderItem}
+          keyExtractor={this.keyExtractor}
+        />
 
-        <SafeAreaView style={styles.floatingActionView}>
-        <FloatingActionButton source={ic_add}
-          onPress={this.onPressAdd.bind(this)}/>
-        </SafeAreaView>
+        <FloatingActionButton 
+          source={ic_add}
+          onPress={this.toggleModal.bind(this)}/>
+
+        <NewOrderModal 
+          isVisible={this.state.modalVisible}
+          closeModal={this.toggleModal}
+        />
       </SafeAreaView>
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container:{
@@ -42,11 +71,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
   },
-  floatingActionView:{
-    flex:1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-  }
+
 });
+
+function mapStateToProps(state){
+  return {orders: state.orders};
+}
+
+export default connect(mapStateToProps)(MisPedidosScreen);
