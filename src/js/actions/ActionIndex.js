@@ -62,9 +62,10 @@ export function setFirebaseRackets(rackets){
 }
 export function getUserFirebaseRackets(dispatch,userId){
     return () => {
-        getRackets(userId)
+        return getRackets(userId)
         .then( (rackets) => {
             dispatch(setFirebaseRackets(rackets));
+            return rackets;
         })
     }
 }
@@ -98,6 +99,7 @@ export function setOrderFromFirebase(dispatch,userId){
         return getUserOrders(userId)
             .then( (orders) => {
                 dispatch(setUserOrder(orders));
+                return orders;
             })
     }
 }

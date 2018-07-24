@@ -64,13 +64,10 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
       );
   };
   onRefresh = ()=>{
-        // TODO get data from firebase
-    //   this.setState({refreshinf: true},() => {
-    //       this.getRaquetasFirebase().then( () => {
-    //           this.setState({refreshing: false});
-    //       })
-    //   })
-    this.props.getFirebaseRackets(this.props.userId);
+      this.setState({refreshing:true}, () => {
+        this.props.getFirebaseRackets(this.props.userId)
+        .then(() => this.setState({refreshing:false}));
+      })
   }
 
   toggleModal(){
@@ -134,9 +131,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return {
-        getFirebaseRackets: (userId)=>{
-            dispatch(getUserFirebaseRackets(dispatch,userId))
-        },
+        getFirebaseRackets: (userId)=> dispatch(getUserFirebaseRackets(dispatch,userId)),
         removeUserRacket: (userId,racket)=>{
             dispatch(removeUserRacketFirebase(dispatch,userId,racket))
         }

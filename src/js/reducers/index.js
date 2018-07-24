@@ -6,7 +6,7 @@ import {
     ADD_STRINGS, 
     GET_STRINGS, 
     SET_USER_ORDERS,
-    RECIVE_USER_RACKETS
+    RECIVE_USER_RACKETS,
 } from "../constants/action-types";
 import React from 'react';
 
@@ -85,8 +85,7 @@ export default function rootReducer(state = initialState, action){
                 cuerdas: payload,
             }
         }
-        
-
+        //--------------------DEFAULT---------------------
         default:
             return state;
     }

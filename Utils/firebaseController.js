@@ -46,7 +46,6 @@ export async function getCuerdas(){
   }
   return cuerdas;
 }
-
 //----------------------USER DATA---------------------
 
 export async function getUser(firUId){

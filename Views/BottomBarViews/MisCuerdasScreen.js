@@ -5,17 +5,23 @@ import {
   FlatList,
   Alert,
   Text,
+  RefreshControl,
 } from 'react-native';
 import ItemCuerda from '../../Components/ListItems/ItemCuerda';
 import { connect } from 'react-redux';
-import firebase from 'react-native-firebase';
-import { getCuerdas } from '../../Utils/firebaseController';
+import { setStrings } from "../../src/js/actions/ActionIndex";
+
 
 
 class MisCuerdasScreen extends React.Component{
   static navigationOptions = {
     title:'Cuerdas'
   }
+
+  state = {
+    refreshing: false,
+  }
+
   renderSeparator(){
     return (
         <View
@@ -27,6 +33,7 @@ class MisCuerdasScreen extends React.Component{
         />
     );
   };
+
   renderItem({item}){
     return (
       <ItemCuerda 
@@ -34,7 +41,19 @@ class MisCuerdasScreen extends React.Component{
       />
     );
   }
+
   _keyExtractor = (item, index) => item.id;
+
+  onRefresh = ()=>{
+    this.setState({refreshing:true}, ()=>{
+      this.props.getStrings()
+      .then( ()=> {
+        this.setState({
+          refreshing:false
+        })
+      })
+    })
+  }
 
   render() {
     return (
@@ -44,6 +63,12 @@ class MisCuerdasScreen extends React.Component{
         data={this.props.cuerdas}
         ItemSeparatorComponent={this.renderSeparator.bind(this)}
         renderItem={this.renderItem.bind(this)}
+        refreshControl={
+          <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.onRefresh}
+          />
+      }
       />
       </View>
     );
@@ -62,4 +87,10 @@ function mapStateToProps(state){
   return { cuerdas: state.cuerdas}
 }
 
-export default connect(mapStateToProps)(MisCuerdasScreen);
+function mapDispatchToProps(dispatch){
+  return {
+    getStrings: ()=>dispatch(setStrings(dispatch)),
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MisCuerdasScreen);
