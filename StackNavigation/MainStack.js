@@ -50,7 +50,7 @@ export const TabStackNavigation = createBottomTabNavigator({
   Cuerdas: Cuerdas,
   Raquetas: Raquetas,
   Historial: Historial,
-  Opciones: Opciones,
+  MisDatos: Opciones,
 },{
   initialRouteName: 'Pedidos',
   tabBarComponent: BottomNavigation,

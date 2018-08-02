@@ -15,3 +15,4 @@ export const ic_item_list = require('./Imagenes/ic_item_list.png');
 export const ic_close = require('./Imagenes/ic_close.png');
 export const ic_location = require('./Imagenes/ic_location.png');
 export const ic_log_out = require('./Imagenes/ic_log_out.png');
+export const ic_user_info = require('./Imagenes/ic_user_info.png');
