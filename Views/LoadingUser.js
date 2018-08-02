@@ -3,48 +3,36 @@ import {
   SafeAreaView,
   StyleSheet,
   Image,
-    Alert
+  ActivityIndicator
 } from 'react-native';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 import { appLogo } from '../Images/Images';
 import firebase from 'react-native-firebase';
 import {  setUserFromFirebase, setStrings , setOrderFromFirebase} from "../src/js/actions/ActionIndex";
 import { connect } from 'react-redux';
+import { Colors } from '../src/Constants';
 
 class LoadingUser extends React.Component{
   constructor() {
     super();
     this.unsubscriber = null;
-    this.state = {
-      user: null,
-      progress: 0,
-      isLoading: true,
-    };
+
   }
 
   componentDidMount(){
-    this.setState({isLoading:true});
     this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
       this.props.setStrings()
       if(user){
-        this.props.getUserOrders(user.uid);
-        this.props.getDatabaseUser(user.uid);
-      }
-      setInterval( ()=>{
-        if (this.state.isLoading){
-            this.setState({isLoading:false},()=>{
-                this.props.navigation.navigate(user ? 'MainStack':'Login');
-            });
-        }
-      }, 2300);
-    });
-    if (this.state.isLoading) {
-      setInterval( () => {
-        this.setState({
-          progress: this.state.progress + 25,
+        Promise.all([
+          this.props.getUserOrders(user.uid),
+          this.props.getDatabaseUser(user.uid)
+        ]).then(()=> {
+          this.props.navigation.navigate('MainStack')
         })
-      },500);
-    }
+      }else{
+        this.props.navigation.navigate('Login');
+      }
+    });
   };
 
 componentWillUnmount(){
@@ -62,15 +50,10 @@ componentWillUnmount(){
         style={{width: '100%', height: '40%', resizeMode: 'contain', marginBottom: 50}}
         />
 
-        <ProgressBarAnimated
-          width={150}
-          value={this.state.progress}
-          backgroundColor={'#087F23'}
-          onComplete={ () => {
-            this.setState({
-              progress: 0,
-            })
-          }}
+        <ActivityIndicator 
+          animating={true}
+          color={Colors.black}
+          size={'large'}
         />
       </SafeAreaView>
     );
@@ -84,7 +67,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     width: '100%',
     height: '100%',
-    backgroundColor: '#4CAF50'
+    backgroundColor: Colors.primaryColor
   },
 })
 
