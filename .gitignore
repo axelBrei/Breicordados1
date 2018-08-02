@@ -6,8 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 
 #ios Build
-!ios/build/
-ios/build/*
+ios/build/
+.DS_Store
 
 # Runtime data
 pids
