@@ -8,5 +8,8 @@ export const Colors = {
     black: '#000',
     tirthColor: '#1485CC',
     backgroundWhiteColor: 'white',
+    grey: '#898585',
+    white:'white',
+    backgroundGrey: '#eaeaea',
 
 }

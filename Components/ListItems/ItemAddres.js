@@ -6,6 +6,7 @@ import {
     Text,
     TouchableOpacity,
 } from 'react-native';
+import { Colors } from '../../src/Constants'
 
 const ItemAddres = ({onPress,title, source, data, index}) => (
         <TouchableOpacity 
@@ -39,14 +40,9 @@ const styles = StyleSheet.create({
     },
     text:{
         marginStart:7,
-        color:'#898585',
+        color:Colors.grey,
         fontSize:18,
         fontStyle: 'italic',
 
     },
-    divider:{
-        height:1,
-        width:'100%',
-        backgroundColor:'#95989A'
-    }
 })

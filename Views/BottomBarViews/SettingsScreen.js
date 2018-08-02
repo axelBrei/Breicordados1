@@ -4,24 +4,40 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  FlatList,
-  Alert,
+  SectionList,
 } from 'react-native';
-import SwitchNavigation from '../../StackNavigation/MainStack';
 import firebase from 'react-native-firebase';
 import UserInfo from '../../Components/Settings/UserInfo';
 import EditDataModal from '../../Components/Settings/EditDataModal';
 import { connect } from "react-redux";
 import {reciveUser } from '../../src/js/actions/ActionIndex';
 import {uploadUser } from '../../Utils/firebaseController';
+import { sections } from '../../src/js/constants/SettingsItems';
+import AddresListHeader from '../../Components/Settings/AddresListHeader';
+import ItemAddres from '../../Components/ListItems/ItemAddres';
+import { ic_add, ic_location, ic_log_out} from '../../Images/Images';
+import NewAddresModal from '../../Components/Modals/NewAddresModal';
+import { Colors } from '../../src/Constants';
+import LogOutButton from '../../Components/Buttons/LogOutButton';
 
 class SettingsScreen extends React.Component{
-  static navigationOptions = {
-    title:'Mis Datos'
+  static navigationOptions = ({navigation}) => {
+    return {
+      title:'Mis Datos',
+      headerRight: (
+        <LogOutButton 
+          onPress={()=>{
+          firebase.auth().signOut()
+          navigation.navigate('Login');
+        }}
+      />
+    )
+    }
   }
   state = {
     modalVisible:false,
     modalPlaceholder: '',
+    newAddresModalVisible: false,
   }
 
   onPressItem(placeholder){
@@ -30,17 +46,24 @@ class SettingsScreen extends React.Component{
       modalPlaceholder: placeholder,
     })
   }
-
-  getData(){
-    const { userData } = this.props;
-    let items =[
-      { placeholder:'Nombre', data:userData.nombreYApellido},
-      { placeholder:'Mail', data:userData.mail},
-      { placeholder:'Telefono', data:userData.telefono}
-    ];
-    return items;
+  onPressAddres = (index) => {
+    if(index === 0){
+      // Open new addres modal
+      this.toogleNewAddresModal();
+    }
   }
-  renderItem({item}){
+  renderItem = ({item,index, section}) => {
+    if(section.key === 'Direcciones'){
+      return (
+        <ItemAddres 
+          title={item.placeholder}
+          data={item.data}
+          index={index}
+          source={index===0 ? ic_add: ic_location}
+          onPress={this.onPressAddres}
+        />
+      )
+    }
     return (
       <UserInfo 
               onPress={item.placeholder !== 'Nombre' ? this.onPressItem.bind(this): ()=>{}}
@@ -48,9 +71,21 @@ class SettingsScreen extends React.Component{
               data={item.data} />
     );
   }
+  renderSectionHeader = ({section}) => {
+    if(section.key === 'Direcciones'){
+      return (
+        <AddresListHeader title={section.key}/>
+      );
+    }
+  }
   toggleModal = ()=>{
     this.setState({
       modalVisible: !this.state.modalVisible,
+    })
+  }
+  toogleNewAddresModal = () => {
+    this.setState({
+      newAddresModalVisible: !this.state.newAddresModalVisible,
     })
   }
   getModaltext(campo,text){
@@ -64,38 +99,24 @@ class SettingsScreen extends React.Component{
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.contentContainer}>
-          <FlatList 
-            contentContainerStyle={styles.userDataList}
-            data={this.getData()}
-            renderItem={this.renderItem.bind(this)}
-            keyExtractor={ item => item.data}
-            ItemSeparatorComponent={()=>{
-              return(<View 
-                style={{
-                  height:1,
-                  width:'100%',
-                  backgroundColor:'#95989A'
-                }}
-              />)
-            }}          
+          <View style={styles.userImageHeader}></View>
+          <SectionList
+            style={styles.userDataList}
+            sections={sections(this.props.userData)}
+            keyExtractor={item => item.data}
+            renderItem={this.renderItem}
+            renderSectionHeader={this.renderSectionHeader}
           />
-          <View style={{flexDirection:'column-reverse',justifyContent:'flex-start',flex:1,alignItems:'center'}}>
-          <TouchableOpacity style={styles.singOut}
-            onPress={()=> {
-              firebase.auth().signOut()
-              this.props.navigation.navigate('Login');
-            }}>
-              <Text>Cerrar Sesion</Text>
-            </TouchableOpacity> 
-          </View>
-        </View>
 
         <EditDataModal 
           placeholder={this.state.modalPlaceholder}
           getModaltext={this.getModaltext.bind(this)}
           visible={this.state.modalVisible}
           onCloseButton={this.toggleModal.bind(this)}
+        />
+        <NewAddresModal 
+          onClose={this.toogleNewAddresModal}
+          visible={this.state.newAddresModalVisible}
         />
 
       </View>
@@ -109,7 +130,10 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: 'white',
   },
   contentContainer:{
     width:'100%',
@@ -117,11 +141,10 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     backgroundColor: 'white',
-    paddingTop:10,
   },
   userDataList:{
+    flex:1,
     width:'100%',
-    height:'50%',
   },
   singOut:{
     borderRadius: 15,
@@ -131,6 +154,11 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     margin:10,
+  },
+  userImageHeader:{
+    height:'30%',
+    width:'100%',
+    backgroundColor: Colors.backgroundGrey,
   }
 })
 

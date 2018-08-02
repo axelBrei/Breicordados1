@@ -5,6 +5,7 @@ import {
     StyleSheet,
     TouchableWithoutFeedback
 } from 'react-native';
+import { Colors } from '../../src/Constants';
 
 export default class UserInfo extends React.Component{
 
@@ -32,17 +33,19 @@ export default class UserInfo extends React.Component{
 const styles = StyleSheet.create({
     container:{
         flexDirection:'column',
-        height: 70,
+        paddingVertical:10,
         justifyContent: 'center',
         paddingStart: 20,
 
     },
     title:{
-        color:'#898585',
+        color: Colors.secondaryDarkColor,
         fontSize:14,
+        fontStyle: 'italic',
+
     },
     info:{
-        color:'#898585',
+        color:Colors.grey,
         fontSize:18,
     },
 })

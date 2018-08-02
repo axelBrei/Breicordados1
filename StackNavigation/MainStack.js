@@ -9,21 +9,39 @@ import HistorialEncordadosScreen from '../Views/BottomBarViews/HistorialEncordad
 import SettingsScreen from '../Views/BottomBarViews/SettingsScreen';
 import BottomNavigation from '../Components/Main/BottomNavigation';
 import AddNewOrderScreen from '../Views/AddNewOrder';
+import { Colors } from '../src/Constants';
+
+const navigationOptions = {
+  headerStyle:{
+    backgroundColor: Colors.primaryColor,
+  },
+  headerTitleStyle:{color:Colors.white}
+};
 
 const Datos = createStackNavigator({
   Datos: {screen : MisPedidosScreen},
+},{
+  navigationOptions: navigationOptions
 });
 const Raquetas = createStackNavigator({
   Raquetas: {screen: MisRaquetasScreen},
+},{
+  navigationOptions: navigationOptions
 });
 const Cuerdas = createStackNavigator({
   Cuerdas: {screen: MisCuerdasScreen}
+},{
+  navigationOptions: navigationOptions
 });
 const Historial = createStackNavigator({
   Historial: {screen: HistorialEncordadosScreen}
+},{
+  navigationOptions: navigationOptions
 });
 const Opciones = createStackNavigator({
   Opciones: {screen: SettingsScreen}
+},{
+  navigationOptions: navigationOptions
 });
 
 
@@ -47,4 +65,10 @@ export default SwitchNavigation = createSwitchNavigator(
       MainStack: TabStackNavigation,
   },{
     initialRouteName: 'Loading',
+    navigationOptions: {
+      headerStyle:{
+        backgroundColor: Colors.primaryColor,
+      },
+      headerTintColor: Colors.primaryColor,
+    }
   });

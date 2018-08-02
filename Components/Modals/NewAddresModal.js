@@ -10,7 +10,7 @@ import TextInput from '../../Components/Text/TextInput';
 
 export default class NewAddresModal extends React.Component{
     state = {
-        
+
     }
 
     render() {

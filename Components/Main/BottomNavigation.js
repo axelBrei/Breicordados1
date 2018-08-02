@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import BottomBarButton from './BottomBarButton';
 import { ic_settings, ic_racket, ic_order , ic_string, ic_history } from '../../Images/Images';
+import { Colors } from '../../src/Constants';
 
 export default class BottomNavigation extends React.Component{
 
@@ -19,7 +20,7 @@ export default class BottomNavigation extends React.Component{
     const icons = [ic_order ,ic_string ,ic_racket, ic_history, ic_settings];
     const buttons = [];
     for (var i = 0; i < routes.length; i++) {
-      const color = index === i ? 'orange':'grey';
+      const color = index === i ? Colors.primaryColor:'grey';
         buttons.push(
           <BottomBarButton
           key={i}
