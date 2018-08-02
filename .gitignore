@@ -5,9 +5,15 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#ios Build
-ios/build/
+#OSX
+#
 .DS_Store
+
+#Xcode
+#
+build/
+Pods/
+project.xcworkspace
 
 # Runtime data
 pids
