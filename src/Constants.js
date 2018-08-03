@@ -11,5 +11,6 @@ export const Colors = {
     grey: '#898585',
     white:'white',
     backgroundGrey: '#eaeaea',
+    lightGreen: '#66bb6a',
 
 }

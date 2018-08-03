@@ -43,25 +43,13 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
   onDeleteSwipe(raqueta){
    this.props.removeUserRacket(this.props.userId,raqueta);
   }
-
-    renderSeparator = () => {
-        return (
-            <View
-                style={{
-                    height: 1,
-                    width: "100%",
-                    backgroundColor: "#95989A",
-                }}
-            />
-        );
-    };
     renderItem = ({item}) => {
-      return (
-          <ItemRaqueta
-              onDeleteSwipe={this.onDeleteSwipe.bind(this)}
-              raqueta={item}
-          />
-      );
+    return (
+        <ItemRaqueta
+            onDeleteSwipe={this.onDeleteSwipe.bind(this)}
+            raqueta={item}
+        />
+    );
   };
   onRefresh = ()=>{
       this.setState({refreshing:true}, () => {
@@ -89,7 +77,6 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
                 />
             }
             keyExtractor={this._keyExtractor}
-            ItemSeparatorComponent={this.renderSeparator}
             renderItem={this.renderItem.bind(this)}
         />
 
@@ -108,14 +95,10 @@ import NewRacketModal from '../../Components/Modals/NewRacketModal';
   }
 }
 
-         
-       
-
 const styles = StyleSheet.create({
     container:{
         display:'flex',
-        width:'100%',
-        height: '100%',
+        flex:1,
         flexDirection:'column',
         backgroundColor:'white',
     },

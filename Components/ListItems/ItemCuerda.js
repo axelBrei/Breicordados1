@@ -24,7 +24,7 @@ export default class ItemCuerda extends React.Component{
                 </View>
                 <Text style={styles.body}>
                     {
-                        `${cuerda.tipo}\n${cuerda.grosor}\n${cuerda.forma}\n${cuerda.material}`
+                        `Tipo: ${cuerda.tipo}\nCalibre: ${cuerda.grosor}\nForma: ${cuerda.forma}\nMaterial: ${cuerda.material}`
                     }
                 </Text>
             </View>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 
     },
     body:{
-        marginStart:50,
+        marginStart:40,
         fontSize:12,
         color:'#898585',
     },
