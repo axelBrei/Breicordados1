@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import { Colors } from '../../src/Constants';
 
 export default class FloatingActionButton extends React.Component{
 
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     height: 56,
     width: 56,
-    backgroundColor: 'orange',
+    backgroundColor: Colors.tirthColor,
     alignItems: 'center',
     justifyContent: 'center',
     margin: 16,

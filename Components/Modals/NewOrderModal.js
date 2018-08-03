@@ -7,6 +7,7 @@ import ExpandableList from '../NewOrder/ExpandableList';
 import ItemRaquetLite from '../ListItems/ItemRaquetaLite';
 import ItemCuerdaLite from '../ListItems/ItemCuerdaLite';
 import { ic_close } from '../../Images/Images';
+import { Colors } from '../../src/Constants';
 
 import {
     View,
@@ -160,11 +161,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         margin: 10,
         alignItems: 'center',
-        borderColor: 'orange',
+        borderColor: Colors.secondaryColor,
     },
     button:{
         alignItems:'center',
-        backgroundColor:'orange',
+        backgroundColor:Colors.tirthColor,
         width:'100%',
         height:40,
         justifyContent:'center',

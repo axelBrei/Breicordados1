@@ -3,10 +3,8 @@ import {
     View,
     TouchableOpacity,
     Text,
-    TextInput,
     Image,
     StyleSheet,
-    Alert,
 } from 'react-native';
 import Modal from 'react-native-modal';
 import ExandableInput from '../NewOrder/ExpandableInput';
@@ -15,6 +13,7 @@ import { addRacketFirebase } from '../../src/js/actions/ActionIndex';
 import UUIDGenerator from 'react-native-uuid-generator';
 import { uploadRacket } from '../../Utils/firebaseController';
 import { ic_close } from '../../Images/Images';
+import { Colors } from '../../src/Constants';
 
 class NewRacketModal extends React.Component{
     state = {
@@ -139,7 +138,7 @@ const styles = StyleSheet.create({
     },
     input:{
         borderWidth:1,
-        borderColor:'orange',
+        borderColor: Colors.secondaryColor,
         width:'90%',
         textAlign:'center',
         borderRadius:10,
@@ -152,18 +151,18 @@ const styles = StyleSheet.create({
         width:'100%',
         height:65,
         paddingTop:15,
-        borderColor:'#A8A0A0',
+        borderColor:Colors.grey,
     },
     divider:{
         height:1,
         width:'100%',
-        backgroundColor: '#A8A0A0',
+        backgroundColor: Colors.grey,
         marginBottom:20,
     },
     button:{
         height:45,
         width:'100%',
-        backgroundColor:'orange',
+        backgroundColor: Colors.tirthColor,
         alignItems:'center',
         justifyContent:'center',
         borderBottomLeftRadius:10,
