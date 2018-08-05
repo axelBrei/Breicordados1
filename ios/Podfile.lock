@@ -5,9 +5,9 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - FBSDKCoreKit (4.34.0):
+  - FBSDKCoreKit (4.35.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.34.0):
+  - FBSDKLoginKit (4.35.0):
     - FBSDKCoreKit
   - Firebase/Auth (5.3.0):
     - Firebase/CoreOnly
@@ -38,7 +38,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
-  - GTMSessionFetcher/Core (1.1.15)
+  - GTMSessionFetcher/Core (1.2.0)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -70,8 +70,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
-  FBSDKLoginKit: 8c78f57a145afb756e4755e69195ebe08a42466e
+  FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
+  FBSDKLoginKit: 00a3d65d1226852f9d76dcddff01981e5e6d9c38
   Firebase: 68afeeb05461db02d7c9e3215cda28068670f4aa
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
   FirebaseAuth: 463b8ce33bd5d05f706dcd4615499e3212b4132b
@@ -79,7 +79,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 482bad9c2abd422bb2321194fb8c937e67426a89
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 

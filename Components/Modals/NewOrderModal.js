@@ -8,7 +8,6 @@ import ItemRaquetLite from '../ListItems/ItemRaquetaLite';
 import ItemCuerdaLite from '../ListItems/ItemCuerdaLite';
 import { ic_close } from '../../Images/Images';
 import { Colors } from '../../src/Constants';
-
 import {
     View,
     TouchableOpacity,
@@ -18,9 +17,6 @@ import {
     StyleSheet,
 } from 'react-native';
 
-function getRandomId(){
-    return Math.floor(Math.random() * 100) + 1;
-}
 
 class NewOrderModal extends React.Component{
     state = {

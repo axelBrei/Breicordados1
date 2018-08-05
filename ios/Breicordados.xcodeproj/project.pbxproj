@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -37,6 +38,7 @@
 		47578233640DA571D38C58F8 /* libPods-BreicordadosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 479BA98075FAABBBB00BFF44 /* libPods-BreicordadosTests.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		75D9DC29679847189A080696 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8B7AC9D844E72875185C3 /* libRNFirebase.a */; };
+		82CE58F1E8A94609ABA69722 /* libRNUUIDGenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4AE16AA3B946979DD58680 /* libRNUUIDGenerator.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B9617A1AFDCA662ADC0A55CF /* libPods-Breicordados-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541839E3B9C9A6DCC7C346CF /* libPods-Breicordados-tvOS.a */; };
@@ -47,7 +49,6 @@
 		FAE2C74920FCF68F00E60252 /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2C74820FCF68F00E60252 /* libFBSDKCoreKit.a */; };
 		FAE2C74B20FCF68F00E60252 /* libFBSDKLoginKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2C74A20FCF68F00E60252 /* libFBSDKLoginKit.a */; };
 		FAE2C75220FCF7D500E60252 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2C75120FCF77600E60252 /* libRCTFBSDK.a */; };
-		82CE58F1E8A94609ABA69722 /* libRNUUIDGenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4AE16AA3B946979DD58680 /* libRNUUIDGenerator.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -350,6 +351,7 @@
 		00E356EE1AD99517003FC87E /* BreicordadosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreicordadosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* BreicordadosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreicordadosTests.m; sourceTree = "<group>"; };
+		0DB98000C2F34ABAA8F699A9 /* RNUUIDGenerator.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNUUIDGenerator.xcodeproj; path = "../node_modules/react-native-uuid-generator/ios/RNUUIDGenerator.xcodeproj"; sourceTree = "<group>"; };
 		0E6A3453912205FCB2B93239 /* Pods-Breicordados-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breicordados-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breicordados-tvOSTests/Pods-Breicordados-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 		867EA3A73AB12F2E10B364E5 /* Pods-Breicordados-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breicordados-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Breicordados-tvOS/Pods-Breicordados-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B01BEA3D21BC4879AFCF3201 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
+		BE4AE16AA3B946979DD58680 /* libRNUUIDGenerator.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNUUIDGenerator.a; sourceTree = "<group>"; };
 		E0E7B3E215ACC3647DFBB983 /* Pods-Breicordados-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breicordados-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breicordados-tvOS/Pods-Breicordados-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EAE2A6B87EFFDA549A5085F5 /* libPods-Breicordados-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Breicordados-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE2C65820FCD01200E60252 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Breicordados/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -391,8 +394,6 @@
 		FAE2C74820FCF68F00E60252 /* libFBSDKCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE2C74A20FCF68F00E60252 /* libFBSDKLoginKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFBSDKLoginKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE2C74C20FCF77600E60252 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../../../../../Downloads/react-native-fbsdk-0.7.0 2/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
-		0DB98000C2F34ABAA8F699A9 /* RNUUIDGenerator.xcodeproj */ = {isa = PBXFileReference; name = "RNUUIDGenerator.xcodeproj"; path = "../node_modules/react-native-uuid-generator/ios/RNUUIDGenerator.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		BE4AE16AA3B946979DD58680 /* libRNUUIDGenerator.a */ = {isa = PBXFileReference; name = "libRNUUIDGenerator.a"; path = "libRNUUIDGenerator.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -701,6 +702,7 @@
 			children = (
 				61A8B7AC9D844E72875185C3 /* libRNFirebase.a */,
 				B01BEA3D21BC4879AFCF3201 /* libRCTFBSDK.a */,
+				BE4AE16AA3B946979DD58680 /* libRNUUIDGenerator.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";

@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.facebook.CallbackManager;
 import com.facebook.react.ReactApplication;
-import io.github.traviskn.rnuuidgenerator.RNUUIDGeneratorPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.RNFirebasePackage;
@@ -39,7 +38,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNUUIDGeneratorPackage(),
             new FBSDKPackage(mCallbackManager),
             new RNFirebasePackage(),
             new RNFirebaseAuthPackage(),

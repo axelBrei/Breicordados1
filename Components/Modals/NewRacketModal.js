@@ -10,7 +10,6 @@ import Modal from 'react-native-modal';
 import ExandableInput from '../NewOrder/ExpandableInput';
 import { connect } from 'react-redux';
 import { addRacketFirebase } from '../../src/js/actions/ActionIndex';
-import UUIDGenerator from 'react-native-uuid-generator';
 import { uploadRacket } from '../../Utils/firebaseController';
 import { ic_close } from '../../Images/Images';
 import { Colors } from '../../src/Constants';
