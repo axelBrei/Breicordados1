@@ -15,6 +15,14 @@ build/
 Pods/
 project.xcworkspace
 
+#Android
+#
+.gradle
+.idea
+local.properties
+*.iml
+
+
 # Runtime data
 pids
 *.pid
