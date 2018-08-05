@@ -3,13 +3,13 @@ import {
   View,
   StyleSheet,
   FlatList,
-  Alert,
-  Text,
   RefreshControl,
 } from 'react-native';
 import ItemCuerda from '../../Components/ListItems/ItemCuerda';
 import { connect } from 'react-redux';
 import { setStrings } from "../../src/js/actions/ActionIndex";
+import TextModal from '../../Components/Modals/TextModal';
+import CommonSeparator from '../../Components/Separators/CommonSeparator';
 
 
 
@@ -20,23 +20,32 @@ class MisCuerdasScreen extends React.Component{
 
   state = {
     refreshing: false,
+    isModalVisible: false,
+    modalData: {
+      data:[],
+      title: '',
+    },
+  }
+  onPressItem = (cuerda) => {
+    const data = {
+      data:[
+        {title:'Tipo', data:cuerda.tipo},
+        {title:'Calibre', data: cuerda.grosor},
+        {title:'Forma', data: cuerda.forma},
+        {title:'Material', data: cuerda.material}
+      ],
+      title: cuerda.marca + ' ' + cuerda.nombre,
+    };
+    this.setState({
+      isModalVisible: true,
+      modalData: data,
+    })
   }
 
-  renderSeparator(){
-    return (
-        <View
-            style={{
-                height: 1,
-                width: "100%",
-                backgroundColor: "#95989A",
-            }}
-        />
-    );
-  };
-
-  renderItem({item}){
+  renderItem = ({item}) => {
     return (
       <ItemCuerda 
+        onPress={this.onPressItem}
         cuerda={item}
       />
     );
@@ -55,20 +64,35 @@ class MisCuerdasScreen extends React.Component{
     })
   }
 
+  toggleModal = () => {
+    this.setState({
+      isModalVisible: !this.state.isModalVisible,
+    })
+  }
+
+ 
+
   render() {
+    const { modalData } = this.state;
     return (
       <View style={styles.container}>
       <FlatList
         keyExtractor={this._keyExtractor}
         data={this.props.cuerdas}
-        ItemSeparatorComponent={this.renderSeparator.bind(this)}
-        renderItem={this.renderItem.bind(this)}
+        ItemSeparatorComponent={CommonSeparator}
+        renderItem={this.renderItem}
         refreshControl={
           <RefreshControl
               refreshing={this.state.refreshing}
               onRefresh={this.onRefresh}
           />
       }
+      />
+      <TextModal 
+        isVisible={this.state.isModalVisible}
+        data={this.state.modalData.data}
+        closeModal={this.toggleModal}
+        title={this.state.modalData.title}
       />
       </View>
     );

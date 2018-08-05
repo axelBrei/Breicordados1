@@ -4,37 +4,30 @@ import {
     TouchableOpacity,
     Text,
     StyleSheet,
-    Alert,
     Image,
 }from 'react-native';
-import { ic_item_list } from '../../Images/Images';
+import PropTypes from 'prop-types';
+import { ic_info } from '../../Images/Images';
 
-export default class ItemCuerda extends React.Component{
-    state = {
-        item: this.props.cuerda,
-    }
-    render() {
-        const { cuerda } = this.props;
-        return (
-            <View style={styles.container}>
-                <View style={{flexDirection:'row'}}>
-                    <Image style={styles.image} source={ic_item_list}/>
-                    <Text style={styles.title}>{`${cuerda.marca} ${cuerda.nombre}`}</Text>
-
-                </View>
-                <Text style={styles.body}>
-                    {
-                        `Tipo: ${cuerda.tipo}\nCalibre: ${cuerda.grosor}\nForma: ${cuerda.forma}\nMaterial: ${cuerda.material}`
-                    }
-                </Text>
+export default ItemCuerda = ({onPress, cuerda}) => (
+    <TouchableOpacity
+        onPress={() => onPress(cuerda)}
+    >
+        <View style={styles.container}>
+                <Image style={styles.image} source={ic_info}/>
+                <Text style={styles.title}>{`${cuerda.marca} ${cuerda.nombre}`}</Text>
             </View>
-        );
-    }
+    </TouchableOpacity>
+)
+
+ItemCuerda.propTypes = {
+    cuerda: PropTypes.object.isRequired,
+    onPress: PropTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection:'column',
+        flexDirection:'row',
         backgroundColor:'white',
         padding: 10,
     },
@@ -44,17 +37,14 @@ const styles = StyleSheet.create({
         marginTop:2,
 
     },
-    body:{
-        marginStart:40,
-        fontSize:12,
-        color:'#898585',
-    },
     image:{
+        position: 'absolute',
+        right:15,
         height:20,
         width:20,
         resizeMode:'contain',
         tintColor:'grey',
-        marginTop: 5,
+        alignSelf: 'center',
     }
 
 });
