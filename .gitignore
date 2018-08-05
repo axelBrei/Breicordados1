@@ -15,10 +15,11 @@ build/
 Pods/
 project.xcworkspace
 
-#Android
+# Android/IntelliJ
 #
-.gradle
+build/
 .idea
+.gradle
 local.properties
 *.iml
 
