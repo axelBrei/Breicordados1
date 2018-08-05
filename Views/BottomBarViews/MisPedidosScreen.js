@@ -4,15 +4,11 @@ import { ic_add } from '../../Images/Images';
 import NewOrderModal from '../../Components/Modals/NewOrderModal';
 import ItemPedido from '../../Components/ListItems/ItemPedido';
 import {
-  View,
   StyleSheet,
-  Platform,
-  Image,
-  TouchableOpacity,
-  Alert,
   FlatList,
   SafeAreaView
 } from 'react-native';
+import CommonSeparator from '../../Components/Separators/CommonSeparator';
 import { connect } from 'react-redux';
 
 class MisPedidosScreen extends React.Component{
@@ -46,6 +42,7 @@ class MisPedidosScreen extends React.Component{
         <FlatList 
           data={listData}
           renderItem={this.renderItem}
+          ItemSeparatorComponent={CommonSeparator}
           keyExtractor={this.keyExtractor}
         />
 

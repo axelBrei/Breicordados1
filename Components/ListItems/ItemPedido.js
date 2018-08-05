@@ -3,19 +3,22 @@ import {
     View,
     Text,
     StyleSheet,
+    Image
 } from 'react-native';
+import { ic_order_item } from '../../Images/Images';
+import { Colors } from '../../src/Constants';
 
 export default class ItemPedido extends React.Component{
 
-    statusColor(status){
+    statusColor = (status) => {
         switch (status.toLowerCase()){
             case 'encordando':{
-                return 'red';
+                return Colors.primaryDrakColor;
             }
-            case 'recibiendo':{
-                return 'red';
+            case 'recibida':{
+                return 'orange';
             }
-            default: return 'green';
+            default: return Colors.lightGreen;
         }
     }
 
@@ -25,17 +28,23 @@ export default class ItemPedido extends React.Component{
         const statusColor = this.statusColor(data.status);
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>{`${raqueta.marca} ${raqueta.modelo}`}</Text>
-                <Text style={styles.description}>
-                    {
-                        `Cuerda: ${cuerda.marca} ${cuerda.nombre} ${cuerda.grosor}\nTension: ${data.tension}`
-                    }
-                </Text>
-                <View style={styles.statusContainer}>
-                    <Text style={styles.status}>Status:</Text>
-                    <Text style={{color: statusColor,width:80}}>{data.status}</Text>
+                <View style={styles.imageContainer}>
+                    <Image source={ic_order_item} style={styles.image}/>
+                    <View 
+                    style={[styles.statusContainer,
+                        {backgroundColor: statusColor}
+                    ]}
+                />
                 </View>
                 
+                <View style={styles.description}>
+                    <Text style={styles.title}>{`${raqueta.marca} ${raqueta.modelo}`}</Text>
+                    <Text>
+                        {
+                            `Cuerda: ${cuerda.marca} ${cuerda.nombre} ${cuerda.grosor}\nTension: ${data.tension}`
+                        }
+                    </Text>
+                </View>    
             </View>
         );
     }
@@ -44,27 +53,37 @@ export default class ItemPedido extends React.Component{
 const styles = StyleSheet.create({
     container:{
         width:'100%',
-        height: 120,
         paddingStart:15,
-        paddingTop:15,
-        paddingEnd:5,
-        borderBottomWidth:1,
-        borderColor:'#A8A0A0',
-    },
-    title:{
-        fontSize:22,
-
+        paddingEnd:20,
+        flexDirection: 'row',
+        alignItems:'center',
+        padding:10,
     },
     description:{
-        marginStart:10,
+        paddingStart:15,
+    },
+    imageContainer:{
+        alignItems:'center',
+        justifyContent: 'center',
+        height:'60%',
+        width:'10%',
+        flexDirection:'row',
+        },
+    title:{
+        fontSize:22,
     },
     statusContainer:{
-        position:'absolute',
-        right:20,
-        bottom: 10,
-        flexDirection:'row',
+        position: 'absolute',
+        alignSelf: 'center',
+        borderRadius:15,
+        width:'30%',
+        height:'30%',
     },
-    status:{
-        marginEnd:5,
-    }
+    image:{
+        height:'100%',
+        width:'100%',
+        resizeMode: 'contain',
+        tintColor: 'grey',
+        marginBottom:7,
+    },
 })
