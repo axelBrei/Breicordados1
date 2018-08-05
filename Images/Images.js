@@ -17,3 +17,4 @@ export const ic_location = require('./Imagenes/ic_location.png');
 export const ic_log_out = require('./Imagenes/ic_log_out.png');
 export const ic_user_info = require('./Imagenes/ic_user_info.png');
 export const ic_info = require('./Imagenes/ic_info.png');
+export const ic_order_item = require('./Imagenes/ic_order.png');
