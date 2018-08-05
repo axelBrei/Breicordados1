@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         alignSelf: 'center',
         borderRadius:15,
-        width:'30%',
-        height:'30%',
+        width:10,
+        height:10,
     },
     image:{
         height:'100%',
