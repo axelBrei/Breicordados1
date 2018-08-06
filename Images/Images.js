@@ -18,3 +18,4 @@ export const ic_log_out = require('./Imagenes/ic_log_out.png');
 export const ic_user_info = require('./Imagenes/ic_user_info.png');
 export const ic_info = require('./Imagenes/ic_info.png');
 export const ic_order_item = require('./Imagenes/ic_order.png');
+export const ic_back = require('./Imagenes/ic_back.png');

@@ -16,7 +16,7 @@ import { sections } from '../../src/js/constants/SettingsItems';
 import AddresListHeader from '../../Components/Settings/AddresListHeader';
 import ItemAddres from '../../Components/ListItems/ItemAddres';
 import { ic_add, ic_location, ic_log_out} from '../../Images/Images';
-import NewAddresModal from '../../Components/Modals/NewAddresModal';
+import AddresModal from '../../Components/Modals/AddresModal';
 import { Colors } from '../../src/Constants';
 import LogOutButton from '../../Components/Buttons/LogOutButton';
 
@@ -38,6 +38,7 @@ class SettingsScreen extends React.Component{
     modalVisible:false,
     modalPlaceholder: '',
     newAddresModalVisible: false,
+    addresData:{}
   }
 
   onPressItem(placeholder){
@@ -48,8 +49,9 @@ class SettingsScreen extends React.Component{
   }
   onPressAddres = (index) => {
     if(index === 0){
-      // Open new addres modal
       this.toogleNewAddresModal();
+    }else{
+      // TODO get addres from user data
     }
   }
   renderItem = ({item,index, section}) => {
@@ -114,7 +116,7 @@ class SettingsScreen extends React.Component{
           visible={this.state.modalVisible}
           onCloseButton={this.toggleModal.bind(this)}
         />
-        <NewAddresModal 
+        <AddresModal 
           onClose={this.toogleNewAddresModal}
           visible={this.state.newAddresModalVisible}
         />
