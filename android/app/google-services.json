@@ -15,13 +15,21 @@
       },
       "oauth_client": [
         {
+          "client_id": "561728358005-vsv74j0lt45hkslv4gctfcm76mduo8ih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.breicordados",
+            "certificate_hash": "dedf98df20af2c9f619d5173f3397c65dd8e3528"
+          }
+        },
+        {
           "client_id": "561728358005-usttprlgoplkucd6ov7pav4t796quh6r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAewvPuu6O8kFCJWhR6a9LCyEOJNHyNWOQ"
+          "current_key": "AIzaSyB83hPwokFQyWvfyUb4gCjZU1P7A_GUIKw"
         }
       ],
       "services": {
@@ -29,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561728358005-4cc1jikkvj7e2t4cj04j4pt6r2l5qg72.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "561728358005-j3shqqagkcbo2inb9qjilrjh3mgv9m4h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.Breicordados"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2

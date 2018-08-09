@@ -5,16 +5,29 @@ import {
     StyleSheet,
     Modal,
     Text,
+    Alert,
     TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
 import NavHeader from '../Headers/NavHeader';
 import BackButtonHeader from '../Buttons/BackButtonHeader';
 import NewAddresContainer from '../Containers/NewAddresContainer';
+import { validateAddress } from '../../Utils/GooglePlacesVaildator';
 
 export default class AddresModal extends React.Component{
     state = {
+        addres:'',
+    }
 
+    getAddressFromContainer = (text) => {
+        this.setState({
+            addres: text,
+        })  
+    }
+
+    onPressAccept = () => {
+        const { addres } = this.state;
+        validateAddress(addres);
     }
 
     render() {
@@ -34,9 +47,11 @@ export default class AddresModal extends React.Component{
                             }/>
 
                         <View style={styles.contentContainer}>
-                            <NewAddresContainer />
+                            <NewAddresContainer 
+                                getText={this.getAddressFromContainer}/>
                         </View>
                         <TouchableOpacity
+                        onPress={()=> this.onPressAccept()} 
                         style={styles.acceptButtonContainer}>
                             <Text style={styles.btnText}>Aceptar</Text>
                         </TouchableOpacity>

@@ -26,9 +26,9 @@ class LoadingUser extends React.Component{
         Promise.all([
           this.props.getUserOrders(user.uid),
           this.props.getDatabaseUser(user.uid)
-        ]).then(()=> {
-          this.props.navigation.navigate('MainStack')
-        })
+        ]).then( () => this.props.navigation.navigate('MainStack'))
+          
+        
       }else{
         this.props.navigation.navigate('Login');
       }
