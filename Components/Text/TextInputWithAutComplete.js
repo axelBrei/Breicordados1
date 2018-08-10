@@ -6,6 +6,7 @@ import {
     StyleSheet,
     KeyboardAvoidingView,
     Alert,
+    Platform,
 } from 'react-native';
 import TextInput from './TextInput';
 import ItemAddressLite from '../ListItems/ItemAddressLite';
@@ -13,15 +14,17 @@ import CommonSeparator from '../Separators/CommonSeparator';
 import { Colors } from '../../src/Constants';
 
 
-export default class TextInputWithAutoComplete extends Component{
+export default class TextInputWithAutoComplete extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             value:'',
             expanded: false,
+            selected: false,
         }
     }
 
+    animation = new Animated.Value(0.01);
     componentWillUpdate(nextProps,nextState){
         const { expanded } = this.state;
         if(nextProps.data !== this.props.data && !expanded){
@@ -38,69 +41,92 @@ export default class TextInputWithAutoComplete extends Component{
         }, () => this.props.onChangeText(this.state.value))
     }
 
-    onPressItem = (title,data) => {
-        this.setState({value: title}, () => {
+    onPressItem = (data) => {
+        this.setState({value: data.display_name, selected:true}, () => {
             this.toggleDropdown();
         });
         this.props.onPressItem(data);
     }
 
-    getMaxHeight = () => {
-        const { maxHeight , data} = this.props;
-        const { expanded } = this.state;
-        const listheight = 50 * (data.length +1);
-        if(data.length > 0 && expanded){
-            return listheight >= maxHeight ? maxHeight : listheight;
-        }else{
-            return 1;
-        }
-    }
-
     toggleDropdown = () => {
+        const { maxHeight , expanded} = this.state;
+        const { animation } = this;
+        const initialvalue = expanded ? maxHeight:1,
+            finalValue = expanded ? 1: maxHeight;
         this.setState({
             expanded: !this.state.expanded,
         })
+        animation.setValue(initialvalue);
+        Animated.timing(
+            animation,
+            {toValue:finalValue,
+            duration: 150}
+        ).start();
     }
 
     renderListItem = ({item}) => {
-        const title = item.display_name ? item.display_name:'';
-        // const desc = item.postalCode ? item.locality +','+item.postalCode:'';
-        // if(item.streetNumber){
+        const { house_number,road, suburb, postcode, state} = item.address;
+        const title = house_number + ' ' + road;
+        const desc = suburb + ', ' + postcode + ', ' +state;
             return (
                 <ItemAddressLite 
                     data={item}
                     title={title}
+                    desc={desc}
                     onPress={this.onPressItem}
                 />
             );
-        
+    }
+
+    getMaxHeight = (contentWidth, contentHeight) => {
+        const { maxHeight } = this.props;
+        if(contentHeight){
+            const height = contentHeight>maxHeight?maxHeight:contentHeight;
+            this.setState({
+                maxHeight: height+20,
+            })
+        }
+    }
+
+    onFocus = () => {
+        const { props } = this;
+        if(props.data.length > 0){
+            this.toggleDropdown();
+        }
+    }
+    onEndEditing = () => {
+        if(this.state.expanded && this.state.selected){
+            this.toggleDropdown();
+        }
     }
 
     render () {
         const { state, props } = this;
-        const listHeight = state.expanded ? this.getMaxHeight(): 1;
         return(
             <View style={styles.container}>
-                <View >
                     <TextInput 
                         value={this.state.value}
                         placeholder={props.placeholder}
                         onChangeText={this.onChangeText}
+                        onFocus={this.onFocus}
+                        onEndEditing={this.onEndEditing}
                     />
-                </View>
-                <View>
-                        <FlatList
-                            style={[styles.listContainer,
-                                {
-                                    height: listHeight,
-                                    paddingVertical: state.expanded ? 10:0
-                                }]}
-                            data={props.data}
-                            renderItem={this.renderListItem}
-                            ItemSeparatorComponent={<CommonSeparator />}
-                        />
-
-                </View>
+                    <View>
+                        <Animated.View
+                            style={[{
+                                height: this.animation,
+                            },styles.listContainer]}
+                            
+                        >
+                                <FlatList                        
+                                    style={[styles.list,{paddingVertical: state.expanded ? 10:0}]}
+                                    data={props.data}
+                                    onContentSizeChange={this.getMaxHeight}
+                                    renderItem={this.renderListItem}
+                                    ItemSeparatorComponent={<CommonSeparator />}
+                                />
+                        </Animated.View>
+                    </View>
             </View>
             
         );
@@ -110,7 +136,6 @@ export default class TextInputWithAutoComplete extends Component{
 const styles = StyleSheet.create({
     container:{
         margin:5,
-        // zIndex:1,
     },
     listContainer:{
         position:'absolute',
@@ -118,12 +143,13 @@ const styles = StyleSheet.create({
         right:5,
         left:5,
         backgroundColor: Colors.backgroundGrey,
-        borderBottomLeftRadius:5,
-        borderBottomRightRadius:5,
     },
     list:{
         paddingHorizontal: 10,
         width:'100%',
+        backgroundColor: Colors.backgroundGrey,
+        borderBottomLeftRadius:5,
+        borderBottomRightRadius:5,
         
     }
 })

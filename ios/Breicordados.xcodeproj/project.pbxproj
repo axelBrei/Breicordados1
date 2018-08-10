@@ -44,7 +44,7 @@
 		B9617A1AFDCA662ADC0A55CF /* libPods-Breicordados-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541839E3B9C9A6DCC7C346CF /* libPods-Breicordados-tvOS.a */; };
 		D0036589D1BDB3D6C591A5E2 /* libPods-Breicordados-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE2A6B87EFFDA549A5085F5 /* libPods-Breicordados-tvOSTests.a */; };
 		E3124066973A62383AA94BAC /* libPods-Breicordados.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8512A5FA763998867C1ACF /* libPods-Breicordados.a */; };
-		FAE2C65920FCD01300E60252 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAE2C65820FCD01200E60252 /* GoogleService-Info.plist */; };
+		FA1B2CDA211C62120074D384 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA1B2CD9211C62120074D384 /* GoogleService-Info.plist */; };
 		FAE2C74720FCF68F00E60252 /* libBolts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2C74620FCF68F00E60252 /* libBolts.a */; };
 		FAE2C74920FCF68F00E60252 /* libFBSDKCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2C74820FCF68F00E60252 /* libFBSDKCoreKit.a */; };
 		FAE2C74B20FCF68F00E60252 /* libFBSDKLoginKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE2C74A20FCF68F00E60252 /* libFBSDKLoginKit.a */; };
@@ -385,7 +385,7 @@
 		BE4AE16AA3B946979DD58680 /* libRNUUIDGenerator.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNUUIDGenerator.a; sourceTree = "<group>"; };
 		E0E7B3E215ACC3647DFBB983 /* Pods-Breicordados-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Breicordados-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Breicordados-tvOS/Pods-Breicordados-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EAE2A6B87EFFDA549A5085F5 /* libPods-Breicordados-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Breicordados-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE2C65820FCD01200E60252 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Breicordados/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA1B2CD9211C62120074D384 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Breicordados/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAE2C6C620FCE98A00E60252 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FAE2C6C720FCE98C00E60252 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		FAE2C6C820FCE98F00E60252 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -543,7 +543,7 @@
 		13B07FAE1A68108700A75B9A /* Breicordados */ = {
 			isa = PBXGroup;
 			children = (
-				FAE2C65820FCD01200E60252 /* GoogleService-Info.plist */,
+				FA1B2CD9211C62120074D384 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1199,7 +1199,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				FAE2C65920FCD01300E60252 /* GoogleService-Info.plist in Resources */,
+				FA1B2CDA211C62120074D384 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

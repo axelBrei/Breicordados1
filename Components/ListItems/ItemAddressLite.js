@@ -6,12 +6,14 @@ import {
     Text,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import { Colors } from '../../src/Constants';
 
 export default ItemAddressLite = ({onPress,title,desc,data}) => (
     <TouchableOpacity 
-        onPress={()=> onPress(title,data)}>
+        onPress={()=> onPress(data)}>
         <View style={styles.container}>
-            <Text>{title}</Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.desc}numberOfLines={1} >{desc}</Text>
         </View>
     </TouchableOpacity>
 )
@@ -19,7 +21,13 @@ export default ItemAddressLite = ({onPress,title,desc,data}) => (
 
 const styles = StyleSheet.create({
     container:{
-        height: 40,
-        padding:5,
+        padding:10,
+    },
+    title:{
+        fontWeight: 'bold',
+    },
+    desc:{
+        fontSize: 12,
+        color: Colors.grey,
     }
 })

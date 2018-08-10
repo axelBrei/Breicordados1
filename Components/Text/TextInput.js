@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { StyleSheet } from 'react-native';
 import { Colors } from '../../src/Constants';
 
-export default TextInput = ({onChangeText,placeholder, value, style, onLayout,onEndEditing}) => (
+export default TextInput = ({onChangeText,placeholder, value, style,onFocus, onEndEditing, ...props}) => (
     <Hoshi
-        onLayout={onLayout}
+        onEndEditing={onEndEditing}
+        onFocus={onFocus}
         style={style}
         value={value}
         label={placeholder}
@@ -14,6 +15,7 @@ export default TextInput = ({onChangeText,placeholder, value, style, onLayout,on
         borderColor={Colors.secondaryDarkColor}
         labelStyle={styles.labelStyle}
         inputStyle={styles.inputStyle}
+        {...props}
     />
 )
 
