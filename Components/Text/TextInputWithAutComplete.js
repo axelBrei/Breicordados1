@@ -18,13 +18,21 @@ export default class TextInputWithAutoComplete extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            value:'',
+            value: '',
             expanded: false,
             selected: false,
         }
     }
 
     animation = new Animated.Value(0.01);
+    componentWillReceiveProps(nextProps){
+        if(this.state.value === ''){
+            this.setState({
+                ...this.state,
+                value: nextProps.value,
+            })
+        }
+    }
     componentWillUpdate(nextProps,nextState){
         const { expanded } = this.state;
         if(nextProps.data !== this.props.data && !expanded){

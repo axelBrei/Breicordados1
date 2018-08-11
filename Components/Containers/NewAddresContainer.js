@@ -13,10 +13,13 @@ import { validateAddress } from '../../Utils/GooglePlacesVaildator';
 import { isValidAddress } from '../../src/Validator';
 
 
+
 export default class NewAddresContainer extends React.Component{
     state ={
         addresData: [],
+        addresValue: '',
         addres:{
+            id:'',
             lat:'',
             lon:'',
             calle:'',
@@ -26,8 +29,14 @@ export default class NewAddresContainer extends React.Component{
         }
     }
 
-    static getDerivedStateFromProps(props,state,prevProps){
-        Alert.alert(state.addres + '');
+    componentDidMount(){
+        if(Object.keys(this.props.data).length !== 0){
+            this.setState({
+                ...this.state,
+                addres: this.props.data,
+                addresValue: this.getAddresValue(this.props.data),
+            })
+        }
     }
 
     getAddresAndValidate = (addres) => {
@@ -48,9 +57,11 @@ export default class NewAddresContainer extends React.Component{
     }
 
     onPressItem = (data) => {
+        const { id } = this.state.addres;
         this.setState({
             addres:{
                 ...this.state.addres,
+                id: id !== '' ? id: data.place_id,
                 lat: data.lat,
                 lon: data.lon,
                 calle: data.address.road,
@@ -68,19 +79,26 @@ export default class NewAddresContainer extends React.Component{
         },()=>this.props.handleChanges(this.state.addres))
     }
 
+    getAddresValue = (data) =>{
+        return data.calle + ' ' + data.altura + ' ' + data.departamento + ' ' + data.barrio;
+        
+    }
+
     render() {
+        const { state, props } = this;
         return (
             <View style={styles.container}>
                 <TextInput 
-                    value={this.state.addres.departamento}
+                    value={state.addres.departamento}
                     onChangeText={this.onChangeDepartmentText}
                     placeholder={'Departamento'}
                     keyboardType={'numeric'}
                 />
                 <TextInputWithAutComplete 
+                    value={state.addresValue}
                     onPressItem={this.onPressItem}
                     maxHeight={100}
-                    data={this.state.addresData}
+                    data={state.addresData}
                     placeholder={'Direccion'}
                     onChangeText={(text)=>this.getAddresAndValidate(text)}
                 />

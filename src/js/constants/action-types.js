@@ -15,3 +15,4 @@ export const ADD_USER_DATA = {
 export const RECIVE_USER = "RECIVE_USER";
 export const ADD_STRINGS = 'ADD_STRINGS';
 export const RECIVE_USER_RACKETS = 'RECIVE_USER_RACKETS';
+export const UPDATE_ADDRES = 'UPDATE_ADDRES';

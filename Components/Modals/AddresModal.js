@@ -14,8 +14,10 @@ import NavHeader from '../Headers/NavHeader';
 import BackButtonHeader from '../Buttons/BackButtonHeader';
 import NewAddresContainer from '../Containers/NewAddresContainer';
 import { isValidAddress } from '../../src/Validator';
+import { connect } from 'react-redux';
+import { addUserAddresToFirebase } from '../../src/js/actions/ActionIndex';
 
-export default class AddresModal extends React.Component{
+class AddresModal extends React.Component{
     state = {
         addres:{},
     }
@@ -28,7 +30,8 @@ export default class AddresModal extends React.Component{
 
     onPressAccept = () => {
         if(isValidAddress(this.state.addres)){
-
+            this.props.addAddres(this.props.userId,this.state.addres);
+            this.props.onClose();
         }else{
             Alert.alert('Debe completar todos los datos para poder continuar');
         }
@@ -52,6 +55,7 @@ export default class AddresModal extends React.Component{
 
                         <View style={styles.contentContainer}>
                             <NewAddresContainer 
+                                data={this.props.modalData}
                                 handleChanges={this.getAddressFromContainer}/>
                         </View>
                         <TouchableOpacity
@@ -99,3 +103,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     }
 })
+
+function mapStateToProps(state){
+    return {
+        userId: state.userData.id,
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        addAddres: (userId,addres) => dispatch(addUserAddresToFirebase(dispatch,userId,addres))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(AddresModal);

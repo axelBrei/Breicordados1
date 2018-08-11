@@ -7,18 +7,20 @@ export const items = (userData) => {
       ]
 };
 
-export const address = () => {
+export const address = (array) => {
     let addres = [
         {placeholder: 'Nueva Direccion', data: ''},
-        {placeholder: 'casa', data: '1'}
     ]
+    array.forEach(element => {
+        addres.push(element)
+    });    
     return addres;
 };
 
-export const sections= (userData) => {
+export const sections= (userData,addres) => {
 
     return [
         {key: 'userData', data: items(userData)},
-        {key: 'Direcciones', data: address()}
+        {key: 'Direcciones', data: address(addres)}
       ]
 }

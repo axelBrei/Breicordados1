@@ -7,6 +7,7 @@ import {
     GET_STRINGS, 
     SET_USER_ORDERS,
     RECIVE_USER_RACKETS,
+    UPDATE_ADDRES,
 } from "../constants/action-types";
 import { 
     getUser , 
@@ -16,7 +17,10 @@ import {
     uploadRacket, 
     removeRacket,
     getRackets,
+    addUserAddresFirebase,
+    getUserAddress,
 } from "../../../Utils/firebaseController";
+import store from '../store/index';
 
 //--------------------USER--------------------
 export function reciveUser(user) {
@@ -113,9 +117,39 @@ export function addOrderFirebase(dispatch,order){
 }
 //--------------------ADDRES---------------------
 export function addUserAddres(addres) {
+    const exist = store.getState().addres.find(el => el.id === addres.id) !== null;
+    if(exist){
+        return {
+            type: UPDATE_ADDRES,
+            payload: addres,
+        }
+    }    
     return {
         type:ADD_USER_DATA.ADD_ADDRES,
-        payload: addres,
+        payload: addres
+    }
+
+}
+export function setUserAddres(addresArray){
+    return {
+        type: GET_FECTHED_USER.GET_USER_ADDRESS,
+        payload: addresArray,
+    }
+}
+export function getUserAddressFromFirebase(dispatch,userId){
+    return () => {
+        return getUserAddress(userId)
+            .then( addres => {
+                dispatch(setUserAddres(addres));
+                return addres;
+            })
+    }
+}
+
+export function addUserAddresToFirebase(dispatch,userId,addres){
+    return () => {
+        dispatch(addUserAddres(addres));
+        addUserAddresFirebase(userId,addres);
     }
 }
 

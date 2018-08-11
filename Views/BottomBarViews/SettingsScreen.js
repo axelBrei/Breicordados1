@@ -19,6 +19,8 @@ import { ic_add, ic_location, ic_log_out} from '../../Images/Images';
 import AddresModal from '../../Components/Modals/AddresModal';
 import { Colors } from '../../src/Constants';
 import LogOutButton from '../../Components/Buttons/LogOutButton';
+import { getUserAddressFromFirebase  }from '../../src/js/actions/ActionIndex';
+
 
 class SettingsScreen extends React.Component{
   static navigationOptions = ({navigation}) => {
@@ -38,7 +40,10 @@ class SettingsScreen extends React.Component{
     modalVisible:false,
     modalPlaceholder: '',
     newAddresModalVisible: false,
-    addresData:{}
+  }
+
+  componentDidMount(){
+    this.props.fetchAddresList(this.props.userData.id);
   }
 
   onPressItem(placeholder){
@@ -47,19 +52,21 @@ class SettingsScreen extends React.Component{
       modalPlaceholder: placeholder,
     })
   }
-  onPressAddres = (index) => {
-    if(index === 0){
+  onPressAddres = (index,data) => {
+    if(index == 0){
       this.toogleNewAddresModal();
     }else{
       // TODO get addres from user data
+      this.toogleNewAddresModal(data);
     }
   }
   renderItem = ({item,index, section}) => {
     if(section.key === 'Direcciones'){
+      const title = index === 0 ? item.placeholder:item.calle + ' ' + item.altura + ' ' + item.departamento;
       return (
         <ItemAddres 
-          title={item.placeholder}
-          data={item.data}
+          title={title}
+          data={item}
           index={index}
           source={index===0 ? ic_add: ic_location}
           onPress={this.onPressAddres}
@@ -85,9 +92,11 @@ class SettingsScreen extends React.Component{
       modalVisible: !this.state.modalVisible,
     })
   }
-  toogleNewAddresModal = () => {
+  toogleNewAddresModal = (addres) => {
     this.setState({
+      ...this.state,
       newAddresModalVisible: !this.state.newAddresModalVisible,
+      modalData: addres ? addres:{},
     })
   }
   getModaltext(campo,text){
@@ -104,7 +113,7 @@ class SettingsScreen extends React.Component{
           <View style={styles.userImageHeader}></View>
           <SectionList
             style={styles.userDataList}
-            sections={sections(this.props.userData)}
+            sections={sections(this.props.userData,this.props.addres)}
             keyExtractor={item => item.data}
             renderItem={this.renderItem}
             renderSectionHeader={this.renderSectionHeader}
@@ -118,6 +127,7 @@ class SettingsScreen extends React.Component{
         />
         <AddresModal 
           onClose={this.toogleNewAddresModal}
+          modalData={this.state.modalData}
           visible={this.state.newAddresModalVisible}
         />
 
@@ -165,13 +175,16 @@ const styles = StyleSheet.create({
 })
 
 function mapStateToProps(state){
-  return {userData: state.userData};
+  return {
+    userData: state.userData,
+    addres: state.addres
+  };
 }
 
 function mapDispatchToProps(dispatch){
   return {
-    reciveUser: (user)=> dispatch(reciveUser(user)),
+    fetchAddresList: (userId) => dispatch(getUserAddressFromFirebase(dispatch,userId)),
   }
 }
 
-export default connect(mapStateToProps)(SettingsScreen);
+export default connect(mapStateToProps,mapDispatchToProps)(SettingsScreen);

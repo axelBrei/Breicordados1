@@ -7,6 +7,7 @@ import {
     GET_STRINGS, 
     SET_USER_ORDERS,
     RECIVE_USER_RACKETS,
+    UPDATE_ADDRES,
 } from "../constants/action-types";
 import React from 'react';
 
@@ -60,9 +61,29 @@ export default function rootReducer(state = initialState, action){
         }
         //--------------------ADDRES---------------------
         case ADD_USER_DATA.ADD_ADDRES:{
+
             return {
                 ...state,
-                addres: [...state.addres, payload],
+                addres: [
+                    ...state.addres, 
+                    payload
+                ],
+            }
+        }
+        case GET_FECTHED_USER.GET_USER_ADDRESS:{
+            return {
+                ...state,
+                addres: payload,
+            }
+        }
+        case UPDATE_ADDRES:{
+            const newArray = state.addres.filter( elem => {
+                elem.id !== payload.id
+            })
+            newArray.push(payload)
+            return {
+                ...state,
+                addres: newArray,
             }
         }
         //--------------------ORDER---------------------

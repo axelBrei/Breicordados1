@@ -93,3 +93,25 @@ export async function getUserOrders(userId){
   }
   return pedidos;
 }
+
+// ------------------------ADDRESS--------------------
+export async function getUserAddress(userId){
+  const snapshot = await firebase.database()
+  .ref('/Usuarios/' + userId + '/Direcciones')
+  .once();
+  const value = snapshot.val();
+  let result = [];
+  for (const key in value) {
+    if (value.hasOwnProperty(key)) {
+      const element = value[key];
+      result.push(element);
+    }
+  }
+  return result;
+}
+
+export function addUserAddresFirebase(userId,addres){
+  firebase.database()
+  .ref('/Usuarios/' + userId + '/Direcciones/' + addres.id)
+  .set(addres);
+}

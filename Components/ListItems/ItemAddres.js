@@ -11,7 +11,7 @@ import { Colors } from '../../src/Constants'
 const ItemAddres = ({onPress,title, source, data, index}) => (
         <TouchableOpacity 
             onPress={() => {
-                onPress(index)
+                onPress(index,data)
             }}>
             <View style={styles.container}>
                 <Image 
