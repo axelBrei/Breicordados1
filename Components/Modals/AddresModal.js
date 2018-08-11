@@ -6,28 +6,32 @@ import {
     Modal,
     Text,
     Alert,
+    Platform,
     TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
 import NavHeader from '../Headers/NavHeader';
 import BackButtonHeader from '../Buttons/BackButtonHeader';
 import NewAddresContainer from '../Containers/NewAddresContainer';
-import { validateAddress } from '../../Utils/GooglePlacesVaildator';
+import { isValidAddress } from '../../src/Validator';
 
 export default class AddresModal extends React.Component{
     state = {
-        addres:'',
+        addres:{},
     }
 
-    getAddressFromContainer = (text) => {
+    getAddressFromContainer = (addres) => {
         this.setState({
-            addres: text,
+            addres: addres,
         })  
     }
 
     onPressAccept = () => {
-        const { addres } = this.state;
-        validateAddress(addres);
+        if(isValidAddress(this.state.addres)){
+
+        }else{
+            Alert.alert('Debe completar todos los datos para poder continuar');
+        }
     }
 
     render() {
@@ -38,17 +42,17 @@ export default class AddresModal extends React.Component{
             animationType={'slide'}>
                 <View style={styles.container}>
                         <NavHeader 
-                            title={'Nueva Raqueta'}
+                            title={'Nueva Direccion'}
                             leftButton={
                                 <BackButtonHeader 
-                                    title={'Volver'}
+                                    title={Platform.OS === 'ios'?'Volver':''}
                                     onPress={this.props.onClose}
                                 />
                             }/>
 
                         <View style={styles.contentContainer}>
                             <NewAddresContainer 
-                                getText={this.getAddressFromContainer}/>
+                                handleChanges={this.getAddressFromContainer}/>
                         </View>
                         <TouchableOpacity
                         onPress={()=> this.onPressAccept()} 

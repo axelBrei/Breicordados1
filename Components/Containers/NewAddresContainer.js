@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import TextInput from '../Text/TextInput';
 import TextInputWithAutComplete from '../Text/TextInputWithAutComplete';
 import { validateAddress } from '../../Utils/GooglePlacesVaildator';
+import { isValidAddress } from '../../src/Validator';
 
 
 export default class NewAddresContainer extends React.Component{
@@ -25,6 +26,10 @@ export default class NewAddresContainer extends React.Component{
         }
     }
 
+    static getDerivedStateFromProps(props,state,prevProps){
+        Alert.alert(state.addres + '');
+    }
+
     getAddresAndValidate = (addres) => {
         if(addres.length >= 6){
             validateAddress(addres)
@@ -34,16 +39,15 @@ export default class NewAddresContainer extends React.Component{
                     })
                     if(result.length > 0){
                         this.setState({
+                            ...this.state,
                             addresData: result,
                         })
                     }
                 })
         }
-        
     }
 
     onPressItem = (data) => {
-        // TODO GET LAT & LONG FROM DATA
         this.setState({
             addres:{
                 ...this.state.addres,
@@ -53,7 +57,7 @@ export default class NewAddresContainer extends React.Component{
                 altura: data.address.house_number,
                 barrio: data.address.suburb
             }
-        })
+        },()=>this.props.handleChanges(this.state.addres))
     }
     onChangeDepartmentText = (text) => {
         this.setState({
@@ -61,13 +65,14 @@ export default class NewAddresContainer extends React.Component{
                 ...this.state.addres,
                 departamento: text,
             }
-        })
+        },()=>this.props.handleChanges(this.state.addres))
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <TextInput 
+                    value={this.state.addres.departamento}
                     onChangeText={this.onChangeDepartmentText}
                     placeholder={'Departamento'}
                     keyboardType={'numeric'}
