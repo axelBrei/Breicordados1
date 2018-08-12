@@ -2,15 +2,13 @@ import React from 'react';
 import {
   View,
   StyleSheet,
-  Text,
-  TouchableOpacity,
+  Alert,
   SectionList,
 } from 'react-native';
 import firebase from 'react-native-firebase';
 import UserInfo from '../../Components/Settings/UserInfo';
 import EditDataModal from '../../Components/Settings/EditDataModal';
 import { connect } from "react-redux";
-import {reciveUser } from '../../src/js/actions/ActionIndex';
 import {uploadUser } from '../../Utils/firebaseController';
 import { sections } from '../../src/js/constants/SettingsItems';
 import AddresListHeader from '../../Components/Settings/AddresListHeader';
@@ -20,6 +18,7 @@ import AddresModal from '../../Components/Modals/AddresModal';
 import { Colors } from '../../src/Constants';
 import LogOutButton from '../../Components/Buttons/LogOutButton';
 import { getUserAddressFromFirebase  }from '../../src/js/actions/ActionIndex';
+import CommonSeparator from '../../Components/Separators/CommonSeparator';
 
 
 class SettingsScreen extends React.Component{
@@ -107,6 +106,15 @@ class SettingsScreen extends React.Component{
     uploadUser(this.props.userData)
     
   }
+
+  renderSeparator = (props) => {
+    const section = props.section.key;
+    if(section === 'Direcciones'){
+      return (<CommonSeparator />)
+    }
+    return (<View/>);
+    
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -115,6 +123,7 @@ class SettingsScreen extends React.Component{
             style={styles.userDataList}
             sections={sections(this.props.userData,this.props.addres)}
             keyExtractor={item => item.data}
+            ItemSeparatorComponent={this.renderSeparator}
             renderItem={this.renderItem}
             renderSectionHeader={this.renderSectionHeader}
           />
