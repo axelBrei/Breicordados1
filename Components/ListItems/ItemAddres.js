@@ -15,13 +15,15 @@ const ItemAddres = ({onPress,title, source, data, index}) => {
     
     if(index === 0){
         return (
-            <View style={styles.container}>
+            <TouchableOpacity onPress={()=> {onPress(index,data)}}>
+                <View style={styles.container}>
                     <Image 
                     source={source} 
                     style={styles.image}
                     />
                     <Text style={styles.text}>{title}</Text>
                 </View>
+            </TouchableOpacity>
         );
     }
     return (
