@@ -38,7 +38,6 @@
 		47578233640DA571D38C58F8 /* libPods-BreicordadosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 479BA98075FAABBBB00BFF44 /* libPods-BreicordadosTests.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		75D9DC29679847189A080696 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61A8B7AC9D844E72875185C3 /* libRNFirebase.a */; };
-		82CE58F1E8A94609ABA69722 /* libRNUUIDGenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE4AE16AA3B946979DD58680 /* libRNUUIDGenerator.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B9617A1AFDCA662ADC0A55CF /* libPods-Breicordados-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 541839E3B9C9A6DCC7C346CF /* libPods-Breicordados-tvOS.a */; };
@@ -429,7 +428,6 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				75D9DC29679847189A080696 /* libRNFirebase.a in Frameworks */,
 				E3124066973A62383AA94BAC /* libPods-Breicordados.a in Frameworks */,
-				82CE58F1E8A94609ABA69722 /* libRNUUIDGenerator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

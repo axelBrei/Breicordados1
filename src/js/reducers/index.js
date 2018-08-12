@@ -78,7 +78,7 @@ export default function rootReducer(state = initialState, action){
         }
         case UPDATE_ADDRES:{
             const newArray = state.addres.filter( elem => {
-                elem.id !== payload.id
+                return elem.id !== payload.id
             })
             newArray.push(payload)
             return {

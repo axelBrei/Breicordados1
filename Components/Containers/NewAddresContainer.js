@@ -58,10 +58,11 @@ export default class NewAddresContainer extends React.Component{
 
     onPressItem = (data) => {
         const { id } = this.state.addres;
+        const uuidV1 = require('uuid/v1');
         this.setState({
             addres:{
                 ...this.state.addres,
-                id: id !== '' ? id: data.place_id,
+                id: id !== '' ? id: uuidV1(),
                 lat: data.lat,
                 lon: data.lon,
                 calle: data.address.road,
